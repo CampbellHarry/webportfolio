@@ -44,7 +44,7 @@ export default function ContactPage() {
                 <div className="container mx-auto items-center flex flex-col px-4">
                     <div className="w-full xl:w-[60%] border bg-white dark:bg-black backdrop-blur-md shadow-md rounded-xl flex flex-col items-center">
                         <div className="border-b dark:border-muted-foreground/20 flex items-center justify-center gap-2 w-full py-10">
-                            <p className="lg:text-xl md:text-md font-semibold text-center">
+                            <p className="lg:text-xl md:text-md gap-1 flex flex-col md:flex-row font-semibold text-center">
                                 <span>Send me a message.</span>
                                 <span className="text-foreground/60">
                                     If you want to say hi or collaborate on your next big idea
@@ -70,9 +70,6 @@ export default function ContactPage() {
                                 <Textarea name="message" className="w-full h-40 p-4 border rounded-md" placeholder="Your message here" required />
                             </div>
                             <div className="flex flex-col gap-5 w-full justify-start">
-                                <p className="text-sm text-foreground/60">
-                                    By submitting this form, you agree to the <a href="#" className="text-cyan-500">Privacy Policy</a>.
-                                </p>
                                 <Button variant="gradient" type="submit">
                                     Submit
                                 </Button>

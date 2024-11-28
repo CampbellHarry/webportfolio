@@ -64,19 +64,19 @@ export default function PageIndex(){
                   <img className="flex flex-col gap-2 border-2 p-0.5 h-full rounded-lg" src="/work/scamstopper3.png"/>
                 </div>
               </div>
-              <div className="group-hover:-translate-y-6 z-20 dark:group-hover:bg-black/50 w-full rounded-tr-lg  group-hover:backdrop-blur-sm transition-transform mb-[-25px]">
-                <HardHat className="pl-6 w-20 h-16 group-hover:h-14  group-hover:w-14 transition-all" />
-                <h2 className="text-2xl font-semibold pl-6 ">View my Work</h2>
-                <p className="text-sm pl-6 text-muted-foreground">View and use my projects.</p>
+              <div className="group-hover:-translate-y-6 z-20 dark:group-hover:bg-black/50 w-full  rounded-tr-lg  group-hover:backdrop-blur-sm transition-transform mb-[-25px]">
+                <HardHat className="pl-6 w-20 h-16 group-hover:h-14  group-hover:w-14 transition-all text-background dark:text-foreground" />
+                <h2 className="text-2xl font-semibold pl-6 text-background dark:text-foreground">View my Work</h2>
+                <p className="text-sm pl-6 text-background dark:text-foreground">View and use my projects.</p>
                 <div className="flex flex-row pl-6 w-full h-full">
-                  <Button variant="ghost" size="sm" asChild className="text-md mt-3 ml-[-10px]">
+                  <Button variant="ghost" size="sm" asChild className="text-md text-background dark:text-foreground mt-3 ml-[-10px]">
                     View Work <ArrowRight size={16} />
                   </Button>
                 </div>
               </div>
             </div>
           </Link>
-          <Link href="/work" className="col-span-2">
+          <Link href="/about" className="col-span-2">
           <div className="flex flex-col relative group w-full h-[20rem] dark:shadow-[#000] items-start border-muted transition-all border overflow-hidden shadow-md hover:shadow-sm justify-end shadow-foreground/20 rounded-lg bg-white dark:bg-gradient-to-t dark:from-black dark:to-[#2e3440] ">
           <div className="absolute inset-0 h-full blur-sm group-hover:blur-none transition-all z-10" aria-hidden="true">
             <div className="w-full h-full flex flex-row items-start justify-start p-6">
