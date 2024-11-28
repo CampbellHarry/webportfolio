@@ -22,11 +22,12 @@ export default function Footer() {
         const theme = window.localStorage.getItem("theme")
         const html = document.querySelector("html")
         if (!html) return
-        if (theme === "dark") {
-          html.classList.add("dark")
+        if (theme === "light") {
+          html.classList.add("light")
             setIsDark(true);
         } else {
-          html.classList.remove("dark")
+          html.classList.remove("light")
+          html.classList.add("dark")
             setIsDark(false);
         }
       }, [])
