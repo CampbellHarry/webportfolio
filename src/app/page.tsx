@@ -2,7 +2,7 @@
 import Header from "@/components/header/header"
 import { Badge } from "@/components/ui/badge"
 import Particles from "@/components/particles/particles"
-import { ArrowRight, HardHat, LocateFixedIcon, MapPin, UserCircleIcon } from "lucide-react"
+import { ArrowRight, HardHat, UserCircleIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import AnimateText from "@/components/animatedtext/animation"
@@ -91,6 +91,7 @@ export default function PageIndex(){
                 };
 
                 const generatePositions = (numQuestions: any, boxWidth = 200, boxHeight = 100) => {
+                  if (typeof window === 'undefined') return [];
                   const positions = [] as any;
                   const maxAttempts = 5000;
 
