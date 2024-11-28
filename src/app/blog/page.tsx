@@ -35,7 +35,7 @@ export default function BlogPage() {
           </div>
           <div className="md:grid md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
             {error ? (
-              <p className="text-red-500">{error}</p>
+              <p className="text-red-500">Blog page will be operational in aprox 2 days</p>
             ) : (
               blogs?.map((blog: any, index: any) => (
                 <BlogCard
