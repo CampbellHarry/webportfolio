@@ -37,7 +37,7 @@ export default function BlogPage() {
             {error ? (
               <p className="text-red-500">{error}</p>
             ) : (
-              blogs?.results?.map((blog: any, index: any) => (
+              blogs?.map((blog: any, index: any) => (
                 <BlogCard
                   key={index}
                   title={blog.title}

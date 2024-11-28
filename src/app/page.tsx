@@ -15,9 +15,9 @@ export default function PageIndex(){
   const questions = ["Who am I?", "What do I do?", "What are my skills?", "What are my interests?", "What are my hobbies?", "What are my goals?", "Why did you start?", "What are you working on?", "What are you listening to?", "What are you building?"];
   
   return(
-    <div className="w-full relative justify-center flex-col items-center flex">
+    <div className="w-full min-h-screen flex flex-col">
       <Header />
-      <div className="flex h-auto pb-20 flex-col w-full mt-10 md:container md:mx-auto md:px-4">
+      <main className="flex-grow py-12 container mx-auto">
         <div className="w-full  relative border-muted border dark:shadow-[#000] overflow-hidden bg-white dark:bg-gradient-to-t dark:from-black dark:to-[#2e3440] items-center justify-center hover:shadow-sm transition-all shadow-md shadow-foreground/20 rounded-lg h-[40rem] p-4">
           <div className="absolute inset-0 h-full" aria-hidden="true">
             <Particles className="h-[200rem]" />
@@ -44,7 +44,7 @@ export default function PageIndex(){
                   Contact Me
                 </Button>
               </Link>
-              <Link href="/resume">
+              <Link href="/resume/Harry Campbell (2).pdf">
                 <Button variant="ghost" size="lg" asChild className="text-md rounded-xl font-semibold">
                   Resume
                 </Button>
@@ -57,18 +57,14 @@ export default function PageIndex(){
           <Link href="/work">
             <div className="flex group flex-col w-full h-[20rem] relative items-start dark:shadow-[#000] border-muted transition-all border overflow-hidden shadow-md hover:shadow-sm justify-end shadow-foreground/20 rounded-lg bg-white dark:bg-gradient-to-t dark:from-black dark:to-[#2e3440]">
               <div className="absolute inset-0 h-full blur-sm group-hover:blur-none transition-all z-10" aria-hidden="true">
-                <div className="w-full h-full flex gap-5 flex-row items-start justify-start p-6">
-                  <div className="flex flex-col gap-2 border py-2 px-4 border-muted-foreground h-full bg-muted-foreground/10 rounded-lg w-full">
-                    <h3 className="font-semibold">Textuality</h3>
-                    <p className="text-muted-foreground text-sm">A content management system made for websites for blogging, event announcements or any type of content</p>
-                  </div>
-                  <div className="flex flex-col gap-2 border py-2 px-4 border-muted-foreground h-full bg-muted-foreground/10 rounded-lg w-full">
-                    <h3 className="font-semibold">HProjects</h3>
-                    <p className="text-muted-foreground text-sm">A project management system made for tracking projects, tasks and deadlines. </p>
-                  </div>
+                <div className="grid grid-cols-2 grid-rows-2 h-full flex-col items-start justify-start ">
+                  <img className="flex flex-col gap-2 border-2 p-0.5 h-full rounded-lg" src="/work/textualitymain.png"/>
+                  <img className="flex flex-col gap-2 border-2 p-0.5 h-full rounded-lg" src="/work/Screenshot 2024-10-25 165816.png"/>
+                  <img className="flex flex-col gap-2 border-2 p-0.5 h-full rounded-lg" src="/work/Untitled design (7).png"/>
+                  <img className="flex flex-col gap-2 border-2 p-0.5 h-full rounded-lg" src="/work/scamstopper3.png"/>
                 </div>
               </div>
-              <div className="group-hover:-translate-y-10 z-20 dark:group-hover:bg-black/50 w-full rounded-tr-lg  group-hover:backdrop-blur-sm transition-transform mb-[-25px]">
+              <div className="group-hover:-translate-y-6 z-20 dark:group-hover:bg-black/50 w-full rounded-tr-lg  group-hover:backdrop-blur-sm transition-transform mb-[-25px]">
                 <HardHat className="pl-6 w-20 h-16 group-hover:h-14  group-hover:w-14 transition-all" />
                 <h2 className="text-2xl font-semibold pl-6 ">View my Work</h2>
                 <p className="text-sm pl-6 text-muted-foreground">View and use my projects.</p>
@@ -85,7 +81,7 @@ export default function PageIndex(){
           <div className="absolute inset-0 h-full blur-sm group-hover:blur-none transition-all z-10" aria-hidden="true">
             <div className="w-full h-full flex flex-row items-start justify-start p-6">
             {(() => {
-                const isOverlapping = (rect1, rect2) => {
+                const isOverlapping = (rect1: any, rect2: any) => {
                   return (
                     rect1.x < rect2.x + rect2.width &&
                     rect1.x + rect1.width > rect2.x &&
@@ -96,15 +92,15 @@ export default function PageIndex(){
 
                 const generatePositions = (numQuestions: any, boxWidth = 200, boxHeight = 100) => {
                   const positions = [] as any;
-                  const maxAttempts = 1000;
+                  const maxAttempts = 5000;
 
                   for (let i = 0; i < numQuestions; i++) {
                     let attempts = 0;
                     let position = null as any;
 
                     do {
-                      const randomX = Math.random() * 80; 
-                      const randomY = Math.random() * 80; 
+                      const randomX = Math.random() * 90; 
+                      const randomY = Math.random() * 90; 
 
                       position = {
                         x: randomX,
@@ -243,7 +239,7 @@ export default function PageIndex(){
           </div>
           </Link>
         </div>
-      </div>
+      </main>
       <Footer />
     </div>
   )
