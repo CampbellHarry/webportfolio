@@ -94,47 +94,54 @@ export default function PageIndex(){
                   if (typeof window === 'undefined') return [];
                   const positions = [] as any;
                   const maxAttempts = 5000;
-
-                  for (let i = 0; i < numQuestions; i++) {
+                  
+                    for (let i = 0; i < numQuestions; i++) {
                     let attempts = 0;
-                    let position = null as any;
-
+                    let position: { x: number; y: number; width: number; height: number } | null = null;
+                  
                     do {
-                      const randomX = Math.random() * 90; 
-                      const randomY = Math.random() * 90; 
-
+                      const randomX = Math.random() * 90;
+                      const randomY = Math.random() * 90;
+                  
                       position = {
-                        x: randomX,
-                        y: randomY,
-                        width: boxWidth / window.innerWidth * 100,
-                        height: boxHeight / window.innerHeight * 100,
+                      x: randomX,
+                      y: randomY,
+                      width: boxWidth / window.innerWidth * 100,
+                      height: boxHeight / window.innerHeight * 100,
                       };
-
-                      const hasCollision = positions.some((p: any) => isOverlapping(position, p));
-
+                  
+                      // Check if this position overlaps with existing ones
+                      const hasCollision = positions.some((p: { x: number; y: number; width: number; height: number }) => isOverlapping(position!, p));
                       if (!hasCollision) {
                         positions.push(position);
                         break;
                       }
-
+                
                       attempts++;
                     } while (attempts < maxAttempts);
-
+                
+                    // If we can't generate a valid position, log a warning and continue
                     if (attempts >= maxAttempts) {
-                      console.warn("Unable to place some items without overlap.");
+                      console.warn(`Unable to place question ${i + 1} without overlap.`);
                       break;
                     }
                   }
-
+                
                   return positions;
                 };
 
                 const positions = generatePositions(questions.length);
+                if (positions.length < questions.length) {
+                  console.warn("Not enough positions generated for all questions.");
+                }
 
                 return (
                   <>
                     {questions.map((question, index) => {
-                      const { x, y } = positions[index];
+                      const position = positions[index];
+                      if (!position) return null; 
+
+                      const { x, y } = position;  
                       return (
                         <div
                           className="absolute"
