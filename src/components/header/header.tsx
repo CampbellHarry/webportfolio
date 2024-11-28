@@ -163,7 +163,7 @@ export default function Header() {
                 <Link
                 key={item.href}
                 href={item.href}
-                className={`nav-link relative z-10 text-sm font-medium flex items-center gap-1.5 transition-colors text-foreground hover:text-primary ${
+                className={`nav-link relative z-10 font-semibold text-sm  flex items-center gap-1.5 transition-colors text-foreground hover:text-primary ${
                     activeNav === item.href ? "font-semibold" : ""
                 }`}
                 onMouseEnter={(e) => handleMouseEnter(e, item.href)}
@@ -217,7 +217,7 @@ export default function Header() {
                 </Link>
                 <Link
                     href="/work"
-                    className="flex items-center gap-4 w-full py-2 mt-3 border-b border-muted-foreground/30"
+                    className="flex items-center gap-4 w-full py-2  mt-3 border-b border-muted-foreground/30"
                 >
                     Work
                 </Link>
