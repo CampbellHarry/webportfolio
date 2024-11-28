@@ -183,13 +183,11 @@ export default function Header() {
             />
             </nav>
             <div className="hidden lg:flex items-center justify-end flex-1 lg:w-0 space-x-4">
-                <Button variant="outline" asChild className='hidden cursor-pointer text lg:flex' onClick={() => ThemeToggle()}>
-                    <Moon size={18} className='dark:flex hidden' />
-                    <Sun size={18} className='dark:hidden' />
-                </Button>
-                <Button variant="outline" asChild className='hidden text lg:flex'>
-                    Contact
-                </Button>
+                <Link href="/contact">
+                  <Button variant="outline" asChild className='hidden text lg:flex'>
+                      Contact
+                  </Button>
+                </Link>
             </div>
             <div className="flex lg:hidden">
                 <Button
@@ -224,6 +222,12 @@ export default function Header() {
                     Work
                 </Link>
                 <Link
+                    href="/contact"
+                    className="flex items-center gap-4 w-full py-2 mt-3 border-b border-muted-foreground/30"
+                >
+                    Contact
+                </Link>
+                <Link
                     href="/blog"
                     className="flex items-center gap-4 w-full py-2 mt-3 border-b border-muted-foreground/30"
                 >
@@ -241,12 +245,9 @@ export default function Header() {
                 >
                     Resume
                 </Link>
-                <Button
-                    variant="outline"
-                    className="w-full mt-3"
-                    onClick={() => ThemeToggle()}
-                >
-                    {isDark ? <Sun size={18} /> : <Moon size={18} />}
+                <Button variant="outline" asChild className='cursor-pointer text flex w-full mt-5' onClick={() => ThemeToggle()}>
+                    <Moon size={18} className='dark:flex hidden' />
+                    <Sun size={18} className='dark:hidden' />
                 </Button>
             </div>
         </div>

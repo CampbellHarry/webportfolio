@@ -31,9 +31,9 @@ export default function WorkPage() {
   return (
     <div className="w-full min-h-screen flex flex-col">
       <Header />
-      <main className="flex-grow py-12">
-        <h1 className="text-3xl font-bold text-start mb-8 container mx-auto px-4 ">Latest Projects</h1>
-        <div className="md:grid flex flex-col md:grid-cols-4 gap-4 px-4">
+      <main className="flex-grow py-12 container mx-auto">
+        <h1 className="text-3xl font-bold text-start mb-8  mx-auto px-4 ">Latest Projects</h1>
+        <div className="md:grid flex flex-col lg:grid-cols-4 gap-4  px-4">
         <div className='col-span-2'>
             <ProjectCard
             title="Textuality"
@@ -133,15 +133,15 @@ interface ProjectCardProps {
     technologies
   }: ProjectCardProps) {
     return (
-      <div className="relative group aspect-[4/3] sm:aspect-[4/2] rounded-lg overflow-hidden shadow-lg">
+      <div className="relative group aspect-[4/3] sm:aspect-[4/2] rounded-xl overflow-hidden shadow-lg">
         <Image
           src={imageSrc}
           alt={`${title} Project`}
           layout="fill"
           objectFit="cover"
-          className="transition-transform duration-300 group-hover:scale-105 group-hover:blur-sm"
+          className="transition-transform duration-300 group-hover:blur-none blur-sm group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-4 flex flex-col justify-end">
+        <div className="absolute inset-0 h bg-gradient-to-t from-black/80 via-black/50 to-transparent p-4 flex flex-col justify-end">
           <div className='w-full flex flex-col space-y-2 transform transition-all duration-300 ease-in-out group-hover:translate-y-0 xl:translate-y-[4rem] lg:translate-y-[8rem] md:translate-y-40 sm:translate-y-[7rem] translate-y-[8.1rem]'>
             <div className='flex flex-col lg:flex-row justify-between items-start sm:items-start w-full'>
               <h2 className="text-xl font-bold text-white mb-1">{title}</h2>

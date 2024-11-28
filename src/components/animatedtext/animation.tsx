@@ -15,8 +15,8 @@ function AnimateText() {
               y: 0,
               opacity: 1,
               filter: 'blur(0px)',
-              duration: .35,
-              delay: index * 0.1,
+              duration: 1,
+              delay: index * 0.6,
               scrollTrigger: {
                 trigger: word,
                 start: 'top 80%',

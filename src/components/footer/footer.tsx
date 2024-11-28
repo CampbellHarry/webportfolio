@@ -62,9 +62,10 @@ export default function Footer() {
                     <div className="flex flex-col items-start gap-3">
                         <h2 className="text-sm font-semibold text-foreground">Themes</h2>
                         <div className="flex flex-row gap-3">
-                            <button className="bg-transparent rounded-full flex items-center justify-center p-2 border hover:bg-muted-foreground/20" onClick={ThemeToggle}>
-                                {isDark ? <Sun className="h-6 w-6" /> : <Moon className="h-6 w-6" />}
-                            </button>
+                            <Button variant="outline" asChild className='cursor-pointer text flex' onClick={() => ThemeToggle()}>
+                                <Moon size={18} className='dark:flex hidden' />
+                                <Sun size={18} className='dark:hidden' />
+                            </Button>
                         </div>
                     </div>
                 </div>

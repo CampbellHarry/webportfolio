@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import AnimateText from "@/components/animatedtext/animation"
 import Footer from "@/components/footer/footer"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
 
 
 export default function PageIndex(){
@@ -26,20 +28,22 @@ export default function PageIndex(){
             <h2 className="lg:text-6xl sm:text-3xl text-2xl font-semibold leading-snug">
               <AnimateText />
             </h2>
-            <div className="flex flex-col md:flex-row items-center justify-center gap-4 mt-4">
+            <div className="flex flex-row items-center justify-center gap-4 mt-4">
               <Badge variant="outline">Software Engineer</Badge>
               <Badge variant="outline">Full Stack Developer</Badge>
               <Badge variant="outline">Cyber Security Engineer</Badge>
             </div>
             <div className="w-full mt-5 flex items-center justify-center">
-              <p className="text-md text-foreground/90 text-center w-1/2">
+              <p className="text-md text-foreground/90 text-center md:w-1/2">
                 I'm a software engineer committed to delivering secure, fast, and reliable systems that meet and exceed business needs.
               </p>
             </div>
             <div className="flex flex-row items-center justify-center gap-5 w-full mt-5">
-              <Button variant="gradient" size="lg" asChild className="text-md rounded-xl font-semibold">
-                Contact Me
-              </Button>
+              <Link href="/contact">
+                <Button variant="gradient" size="lg" asChild className="text-md rounded-xl font-semibold">
+                  Contact Me
+                </Button>
+              </Link>
               <Link href="/resume">
                 <Button variant="ghost" size="lg" asChild className="text-md rounded-xl font-semibold">
                   Resume
@@ -50,30 +54,34 @@ export default function PageIndex(){
           </div>
         </div>
         <div className="w-full mt-10 flex flex-col md:grid md:grid-cols-3 gap-10">
-          <div className="flex group flex-col w-full h-[20rem] relative items-start dark:shadow-[#000] border-muted transition-all border overflow-hidden shadow-md hover:shadow-sm justify-end shadow-foreground/20 rounded-lg bg-white dark:bg-gradient-to-t dark:from-black dark:to-[#2e3440]">
-            <div className="absolute inset-0 h-full blur-sm group-hover:blur-none transition-all z-10" aria-hidden="true">
-              <div className="w-full h-full flex gap-5 flex-row items-start justify-start p-6">
-                <div className="flex flex-col gap-2 border py-2 px-4 border-muted-foreground h-full bg-muted-foreground/10 rounded-lg w-full">
-                  <h3>Textuality</h3>
-                  <p className="text-muted-foreground text-sm">A content management system made for websites for blogging, event announcements or any type of content</p>
+          <Link href="/work">
+            <div className="flex group flex-col w-full h-[20rem] relative items-start dark:shadow-[#000] border-muted transition-all border overflow-hidden shadow-md hover:shadow-sm justify-end shadow-foreground/20 rounded-lg bg-white dark:bg-gradient-to-t dark:from-black dark:to-[#2e3440]">
+              <div className="absolute inset-0 h-full blur-sm group-hover:blur-none transition-all z-10" aria-hidden="true">
+                <div className="w-full h-full flex gap-5 flex-row items-start justify-start p-6">
+                  <div className="flex flex-col gap-2 border py-2 px-4 border-muted-foreground h-full bg-muted-foreground/10 rounded-lg w-full">
+                    <h3 className="font-semibold">Textuality</h3>
+                    <p className="text-muted-foreground text-sm">A content management system made for websites for blogging, event announcements or any type of content</p>
+                  </div>
+                  <div className="flex flex-col gap-2 border py-2 px-4 border-muted-foreground h-full bg-muted-foreground/10 rounded-lg w-full">
+                    <h3 className="font-semibold">HProjects</h3>
+                    <p className="text-muted-foreground text-sm">A project management system made for tracking projects, tasks and deadlines. </p>
+                  </div>
                 </div>
-                <div className="flex flex-col border py-2 px-4 border-muted-foreground h-full bg-muted-foreground/10 rounded-lg w-full">
-                  <h3>HProjects</h3>
+              </div>
+              <div className="group-hover:-translate-y-10 z-20 dark:group-hover:bg-black/50 w-full rounded-tr-lg  group-hover:backdrop-blur-sm transition-transform mb-[-25px]">
+                <HardHat className="pl-6 w-20 h-16 group-hover:h-14  group-hover:w-14 transition-all" />
+                <h2 className="text-2xl font-semibold pl-6 ">View my Work</h2>
+                <p className="text-sm pl-6 text-muted-foreground">View and use my projects.</p>
+                <div className="flex flex-row pl-6 w-full h-full">
+                  <Button variant="ghost" size="sm" asChild className="text-md mt-3 ml-[-10px]">
+                    View Work <ArrowRight size={16} />
+                  </Button>
                 </div>
               </div>
             </div>
-            <div className="group-hover:-translate-y-10 z-20 w-full rounded-tr-lg  group-hover:backdrop-blur-sm transition-transform mb-[-25px]">
-              <HardHat className="pl-6 w-20 h-16 group-hover:h-14  group-hover:w-14 transition-all" />
-              <h2 className="text-2xl font-semibold pl-6 ">View my Work</h2>
-              <p className="text-sm pl-6 text-muted-foreground">View and use my projects.</p>
-              <div className="flex flex-row pl-6 backdrop-blur-sm w-full h-full">
-                <Button variant="ghost" size="sm" asChild className="text-md mt-3 ml-[-10px]">
-                  View Work <ArrowRight size={16} />
-                </Button>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col relative group w-full h-[20rem] dark:shadow-[#000] items-start border-muted transition-all col-span-2 border overflow-hidden shadow-md hover:shadow-sm justify-end shadow-foreground/20 rounded-lg bg-white dark:bg-gradient-to-t dark:from-black dark:to-[#2e3440] ">
+          </Link>
+          <Link href="/work" className="col-span-2">
+          <div className="flex flex-col relative group w-full h-[20rem] dark:shadow-[#000] items-start border-muted transition-all border overflow-hidden shadow-md hover:shadow-sm justify-end shadow-foreground/20 rounded-lg bg-white dark:bg-gradient-to-t dark:from-black dark:to-[#2e3440] ">
           <div className="absolute inset-0 h-full blur-sm group-hover:blur-none transition-all z-10" aria-hidden="true">
             <div className="w-full h-full flex flex-row items-start justify-start p-6">
             {(() => {
@@ -155,46 +163,121 @@ export default function PageIndex(){
               })()}
             </div>
           </div>
-          <div className="group-hover:-translate-y-10 z-20 w-1/2 rounded-tr-lg group-hover:backdrop-blur-sm transition-transform mb-[-25px]">
+          <div className="group-hover:-translate-y-10 z-20 dark:group-hover:bg-black/50 w-full rounded-tr-lg group-hover:backdrop-blur-sm transition-transform mb-[-25px]">
               <UserCircleIcon className="pl-6 w-20 h-16 group-hover:h-14  group-hover:w-14 transition-all" />
               <h2 className="text-2xl font-semibold pl-6 ">Harry Campbell</h2>
               <p className="text-sm pl-6 text-muted-foreground">Learn about me.</p>
-              <div className="flex flex-row pl-6 backdrop-blur-sm w-full h-full">
+              <div className="flex flex-row pl-6 w-full h-full">
                 <Button variant="ghost" size="sm" asChild className="text-md mt-3 ml-[-10px]">
                   Learn about me <ArrowRight size={16} />
                 </Button>
               </div>
             </div>
           </div>
+          </Link>
+          <Link href="/blog" className="col-span-2">
           <div className="flex group flex-col w-full col-span-2 h-[20rem] relative items-start border-muted transition-all border overflow-hidden shadow-md hover:shadow-sm justify-end shadow-foreground/20 dark:shadow-[#000] rounded-lg bg-white dark:bg-gradient-to-t dark:from-black dark:to-[#2e3440]">
-            <div className="group-hover:-translate-y-10 z-20 w-1/2 rounded-tr-lg group-hover:backdrop-blur-sm transition-transform mb-[-25px]">
+            <div className="absolute inset-0 h-full blur-sm group-hover:blur-none transition-all z-10" aria-hidden="true">
+              <div className="w-full h-full flex flex-row flex-wrap items-start justify-start p-6 gap-4">
+                <BlogCard
+                  title="How to build a website"
+                  authorName="Harry Campbell"
+                  date="11/11/2024"
+                  tags={["React", "Next.js", "TailwindCSS"]}
+                  authorpfp="https://media.licdn.com/dms/image/v2/D4E03AQE8xiUVqps7_g/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1720299869628?e=1738195200&v=beta&t=8BEWlH2SAWnof_LunZt0Ytf5zaK-_OodJ312TfnvzT0"
+                />
+                <BlogCard
+                  title="Why security is important"
+                  authorName="Harry Campbell"
+                  date="15/11/2024"
+                  tags={["Cyber Security", "Security", "Web Development"]}
+                  authorpfp="https://media.licdn.com/dms/image/v2/D4E03AQE8xiUVqps7_g/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1720299869628?e=1738195200&v=beta&t=8BEWlH2SAWnof_LunZt0Ytf5zaK-_OodJ312TfnvzT0"
+                />
+              </div>
+            </div>
+            <div className="group-hover:-translate-y-10 dark:group-hover:bg-black/50 z-20 w-full rounded-tr-lg group-hover:backdrop-blur-sm transition-transform mb-[-25px]">
               <UserCircleIcon className="pl-6 w-20 h-16 group-hover:h-14  group-hover:w-14 transition-all" />
               <h2 className="text-2xl font-semibold pl-6 ">Blog</h2>
               <p className="text-sm pl-6 text-muted-foreground">Read the things I post</p>
-              <div className="flex flex-row pl-6 backdrop-blur-sm w-full h-full">
+              <div className="flex flex-row pl-6 w-full h-full">
                 <Button variant="ghost" size="sm" asChild className="text-md mt-3 ml-[-10px]">
                   Read Blog <ArrowRight size={16} />
                 </Button>
               </div>
             </div>
           </div>
+          </Link>
+          <Link href="/contact">
           <div className="flex group flex-col w-full col-span-1 h-[20rem] relative items-start border-muted transition-all border overflow-hidden shadow-md hover:shadow-sm justify-end shadow-foreground/20 dark:shadow-[#000] rounded-lg bg-white dark:bg-gradient-to-t dark:from-black dark:to-[#2e3440] ">
-            <div className="group-hover:-translate-y-10 z-20 w-1/2 rounded-tr-lg group-hover:backdrop-blur-sm transition-transform mb-[-25px]">
+              <div className="absolute inset-0 h-full blur-sm  group-hover:blur-none transition-all z-10" aria-hidden="true">
+                <form className="flex flex-col gap-4 p-4">
+                  <div className="flex flex-row justify-between gap-2">
+                  <div className="flex flex-col gap-2 w-full">
+                    <label htmlFor="name" className="text-sm font-semibold">Name</label>
+                    <Input type="text" id="name" className="border p-2 rounded-md" placeholder="Your Name" />
+                  </div>
+                  <div className="flex flex-col gap-2 w-full">
+                    <label htmlFor="email" className="text-sm font-semibold">Email</label>
+                    <Input type="email" id="email" className="border p-2 rounded-md" placeholder="Your Email" />
+                  </div>
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <label htmlFor="message" className="text-sm font-semibold">Message</label>
+                    <Textarea id="message" className="border p-2 rounded-md" placeholder="Your Message" rows={4}></Textarea>
+                  </div>
+                  <Button variant="secondary" size="lg" className="text-md rounded-xl font-semibold">
+                    Submit
+                  </Button>
+                </form>
+              </div>
+            <div className="group-hover:-translate-y-10 z-20 w-full dark:group-hover:bg-black/50 rounded-tr-lg group-hover:backdrop-blur-sm transition-transform mb-[-25px]">
               <UserCircleIcon className="pl-6 w-20 h-16 group-hover:h-14  group-hover:w-14 transition-all" />
               <h2 className="text-2xl font-semibold pl-6 ">Contact</h2>
-              <p className="text-sm pl-6 text-muted-foreground">Read the things I post</p>
-              <div className="flex flex-row pl-6 backdrop-blur-sm w-full h-full">
+              <p className="text-sm pl-6 text-muted-foreground">Contact me</p>
+              <div className="flex flex-row pl-6  w-full h-full">
                 <Button variant="ghost" size="sm" asChild className="text-md mt-3 ml-[-10px]">
-                  Read Blog <ArrowRight size={16} />
+                  Contact me<ArrowRight size={16} />
                 </Button>
               </div>
             </div>
           </div>
-
+          </Link>
         </div>
       </div>
       <Footer />
-
     </div>
   )
+}
+
+
+function BlogCard({ title, authorName, date, tags, authorpfp }: { title: string; authorName: string; date: string; tags: string[], authorpfp: string }) {
+  return (
+    <div className="flex flex-col gap-4 border w-full p-4 rounded-md bg-white dark:bg-black/60">
+      <div className="flex flex-col gap-2">
+        <h1 className="text-2xl font-bold text-start">{title}</h1>
+        <div className="flex flex-row gap-2 items-center">
+          <div className="flex flex-row gap-2 items-center">
+            <img
+              src={authorpfp}
+              alt="Author"
+              className="h-7 border-2 w-7 p-0.5 rounded-full"
+            />
+            <p className="text-neutral-400 text-sm">{authorName}</p>
+          </div>
+          •
+          <p className="text-neutral-400 text-sm">{date}</p>
+        </div>
+        <div className="flex flex-row gap-1 items-start">
+          {tags.map((tag, index) => (
+            <div
+              key={index}
+              className="flex flex-row gap-1 border px-2 py-0.5 rounded-md border-cyan-300 shadow-sm shadow-cyan-400/50 items-center"
+            >
+              <p className="text-neutral-400 font-semibold text-xs">{tag}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 }
