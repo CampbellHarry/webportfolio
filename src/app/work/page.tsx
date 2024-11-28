@@ -14,7 +14,7 @@ interface TechCardProps {
     bgcoloron?: boolean
   }
   
-  export function TechCard({ icon, name, color, textColor = 'text-black', bgcoloron }: TechCardProps) {
+function TechCard({ icon, name, color, textColor = 'text-black', bgcoloron }: TechCardProps) {
     return (
       <div 
       className={`inline-flex items-center gap-2 px-2 py-1 rounded-md transition-all duration-300 hover:shadow-md ${color} ${textColor}`}
@@ -124,7 +124,7 @@ interface ProjectCardProps {
     }>
   }
   
-  export function ProjectCard({
+function ProjectCard({
     title,
     description,
     imageSrc,
