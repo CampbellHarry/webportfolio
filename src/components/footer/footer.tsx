@@ -5,17 +5,17 @@ import { Linkedin } from "lucide-react";
 
 export default function Footer() {
     const [isDark, setIsDark] = useState(true);
-    function ThemeToggle() {
+    function ThemeToggle({ theme }: { theme: string }) {
         const html = document.querySelector("html")
         if (!html) return
-        if (html.classList.contains("dark")) {
-          html.classList.remove("dark")
-            window.localStorage.setItem("theme", "light")
-          setIsDark(false);
-        } else {
+        if (theme === "dark") {
           html.classList.add("dark")
-            window.localStorage.setItem("theme", "dark")
-            setIsDark(true);
+          window.localStorage.setItem("theme", "dark")
+          setIsDark(true);
+        } else {
+          html.classList.remove("dark")
+          window.localStorage.setItem("theme", "light")
+          setIsDark(false);
         }
       }
       useEffect(() => {
@@ -62,10 +62,14 @@ export default function Footer() {
                     <div className="flex flex-col items-start gap-3">
                         <h2 className="text-sm font-semibold text-foreground">Themes</h2>
                         <div className="flex flex-row gap-3">
-                            <Button variant="outline" asChild className='cursor-pointer text flex' onClick={() => ThemeToggle()}>
-                                <Moon size={18} className='dark:flex hidden' />
-                                <Sun size={18} className='dark:hidden' />
-                            </Button>
+                            <div className="w-full flex flex-row gap-2 items-start justify-between">
+                                <div className="flex rounded-full bg-[#f0f0f0] dark:bg-[#2e3440] p-1" onClick={() => ThemeToggle({theme: "light"})}>
+                                    <Sun size={18} />
+                                </div>
+                                <div className="flex rounded-full bg-[#f0f0f0] dark:bg-[#2e3440] p-1" onClick={() => ThemeToggle({theme: "dark"})}>
+                                    <Moon size={18} />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
