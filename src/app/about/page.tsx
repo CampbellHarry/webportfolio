@@ -12,30 +12,12 @@ interface TechCardProps {
   bgcoloron?: boolean;
 }
 
-export function TechCard({ icon, name, color, textColor = "text-black", bgcoloron }: TechCardProps) {
-  return (
-    <div
-      className={`inline-flex items-center gap-2 px-2 py-1 rounded-md transition-all duration-300 hover:shadow-md ${color} ${textColor}`}
-      role="listitem"
-    >
-      <img
-        src={icon}
-        className={`w-8 h-8 overflow-hidden rounded-sm ${bgcoloron ? "bg-white" : ""}`}
-        aria-hidden="true"
-        alt={`${name} logo`}
-      />
-      <span className="text-md font-semibold text-white">{name}</span>
-    </div>
-  );
-}
-
 export default function AboutPage() {
   return (
     <div className="w-full min-h-screen flex flex-col ">
       <Header />
       <main className="flex-grow py-12">
         <div className="container mx-auto flex flex-col px-4">
-          {/* About Section */}
           <div className="mx-auto w-full md:w-[50%] flex flex-col items-start">
             <h1 className="text-3xl font-bold text-start mb-4 leading-tight">
               Beyond my technical expertise as a software engineer, there's a personal story that shapes my journey.
