@@ -42,7 +42,7 @@ export default function ContactPage() {
             <Header />
             <main className="flex-grow py-12">
                 <div className="container mx-auto items-center flex flex-col px-4">
-                    <div className="w-full xl:w-[60%] border bg-white dark:bg-black backdrop-blur-md shadow-md rounded-xl flex flex-col items-center">
+                    <div className="w-full xl:w-[60%] border bg-white dark:bg-black transition-all dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] hover:dark:[box-shadow:0_-20px_140px_-20px_#ffffff1f_inset] backdrop-blur-md shadow-md rounded-xl flex flex-col items-center">
                         <div className="border-b dark:border-muted-foreground/20 flex items-center justify-center gap-2 w-full py-10">
                             <p className="lg:text-xl md:text-md gap-1 flex flex-col md:flex-row font-semibold text-center">
                                 <span>Send me a message.</span>
