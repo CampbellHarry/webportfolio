@@ -92,7 +92,7 @@ export default function ContactPage() {
                                 <p className="text-sm text-foreground/60">
                                     Get up to date on my projects and open source contributions
                                 </p>
-                                <Link href="https://github.com/harry-campbell">
+                                <Link href="https://github.com/CampbellHarry">
                                     <Button variant="outline" className="w-full">Follow</Button>
                                 </Link>
                             </div>
