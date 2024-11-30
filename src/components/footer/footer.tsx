@@ -1,4 +1,4 @@
-import { Moon, Sun } from "lucide-react";
+import { Github, Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { Linkedin } from "lucide-react";
@@ -45,6 +45,9 @@ export default function Footer() {
                         <a href="https://linkedin.com/in/itharrycampbell" target="_blank" rel="noreferrer" className="text-sm font-medium text-muted-foreground">
                             <Linkedin size={18} />
                         </a>
+                        <a href="https://github.com/in/CampbellHarry" target="_blank" rel="noreferrer" className="text-sm font-medium text-muted-foreground">
+                            <Github size={18} />
+                        </a>
                     </div>
                 </div>
                 <div className="flex xs:flex-col flex-row mt-0 justify-between md:w-1/4 gap-5 w-full">
@@ -64,10 +67,10 @@ export default function Footer() {
                         <h2 className="text-sm font-semibold text-foreground">Themes</h2>
                         <div className="flex flex-row gap-3">
                             <div className="w-full flex flex-row gap-2 items-start justify-between">
-                                <div className="flex rounded-full bg-[#f0f0f0] dark:bg-[#2e3440] p-1" onClick={() => ThemeToggle({theme: "light"})}>
+                                <div className="flex rounded-full bg-[#f0f0f0] dark:bg-[#2e3440] p-1 cursor-pointer" onClick={() => ThemeToggle({theme: "light"})}>
                                     <Sun size={18} />
                                 </div>
-                                <div className="flex rounded-full bg-[#f0f0f0] dark:bg-[#2e3440] p-1" onClick={() => ThemeToggle({theme: "dark"})}>
+                                <div className="flex rounded-full bg-[#f0f0f0] dark:bg-[#2e3440] p-1 cursor-pointer" onClick={() => ThemeToggle({theme: "dark"})}>
                                     <Moon size={18} />
                                 </div>
                             </div>
