@@ -45,7 +45,7 @@ export default function Footer() {
                         <a href="https://linkedin.com/in/itharrycampbell" target="_blank" rel="noreferrer" className="text-sm font-medium text-muted-foreground">
                             <Linkedin size={18} />
                         </a>
-                        <a href="https://github.com/in/CampbellHarry" target="_blank" rel="noreferrer" className="text-sm font-medium text-muted-foreground">
+                        <a href="https://github.com/CampbellHarry" target="_blank" rel="noreferrer" className="text-sm font-medium text-muted-foreground">
                             <Github size={18} />
                         </a>
                     </div>
