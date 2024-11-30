@@ -12,31 +12,6 @@ import { useState } from 'react';
 
 export default function ContactPage() {
 
-
-    function FormSubmitter() {
-        return async (e: React.FormEvent<HTMLFormElement>) => {
-            e.preventDefault();
-            if ((e.target as HTMLFormElement).checkValidity()) {
-                // Send email via formsubmit.co
-                const formData = new FormData(e.target as HTMLFormElement);
-
-                const response = await fetch("https://formsubmit.co/hello@hdev.uk", {
-                    method: "POST",
-                    body: JSON.stringify(Object.fromEntries(formData)),
-                    headers: { "Content-Type": "application/json" },
-                });
-
-                const data = await response.json();
-                if (data.success) {
-                    alert("Message sent successfully!");
-                    (e.target as HTMLFormElement).reset();
-                } else {
-                    alert("There was an error sending your message. Please try again later.");
-                }
-            }
-        };
-    }
-
     return (
         <div className="w-full min-h-screen flex flex-col">
             <Header />
@@ -53,7 +28,8 @@ export default function ContactPage() {
                         </div>
                         <form
                             className="w-full flex flex-col items-center gap-4 px-8 pt-8 pb-16 border-b dark:border-muted-foreground/20"
-                            onSubmit={FormSubmitter()}
+                            action="https://formsubmit.co/b8873c5a8eefade0970301a1dc87e5dc"
+                            method="POST"
                         >
                             <div className="flex flex-row justify-between gap-5 w-full">
                                 <div className="flex flex-col w-full gap-1">
@@ -92,7 +68,7 @@ export default function ContactPage() {
                                 <p className="text-sm text-foreground/60">
                                     Get up to date on my projects and open source contributions
                                 </p>
-                                <Link href="https://github.com/harry-campbell">
+                                <Link href="https://github.com/campbellharry">
                                     <Button variant="outline" className="w-full">Follow</Button>
                                 </Link>
                             </div>
