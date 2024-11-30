@@ -240,7 +240,7 @@ export default function Header() {
                     About
                 </Link>
                 <Link
-                    href="/resume"
+                    href="/resume/Harry Campbell (2).pdf"
                     className="flex items-center gap-4 w-full py-2 mt-3 border-b border-muted-foreground/30"
                 >
                     Resume

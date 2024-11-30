@@ -56,7 +56,7 @@ export default function Footer() {
                         <a href="/" className="text-sm font-medium text-muted-foreground">Home</a>
                         <a href="/about" className="text-sm font-medium text-muted-foreground">About</a>
                         <a href="/contact" className="text-sm font-medium text-muted-foreground">Contact</a>
-                        <a href="/sitemap" className="text-sm font-medium text-muted-foreground">Sitemap</a>
+                        <a href="/sitemap.xml" className="text-sm font-medium text-muted-foreground">Sitemap</a>
                     </div>
                     <div className="flex flex-col items-start gap-3">
                         <h2 className="text-sm font-semibold text-foreground">Blog & Work</h2>
