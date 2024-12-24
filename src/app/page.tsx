@@ -61,7 +61,7 @@ export default function PageIndex(){
           </div>
           </div>
         </div>
-        <div className="container mx-auto mt-10 flex flex-col">
+        <div className="container mx-auto mt-10 flex flex-col px-2">
           <h2 className="text-3xl font-semibold text-start">Recent Work</h2> 
           <div className="flex flex-col gap-4 mt-5">
             <ProjectCard
@@ -100,7 +100,7 @@ export default function PageIndex(){
             />
           </div>
         </div>
-        <div className="container mx-auto mt-10 flex flex-col">
+        <div className="container mx-auto mt-10 px-2 flex flex-col">
           <div className="overflow-hidden ">
             <Skills  />
           </div>
