@@ -2,7 +2,7 @@
 import Footer from '@/components/footer/footer';
 import Header from '@/components/header/header';
 import { useEffect, useState } from 'react';
-import Gatherer from '@/components/textuality/gatherer';
+import Gatherer from '@/components/textuality/pather';
 
 
 interface BlogProps {
