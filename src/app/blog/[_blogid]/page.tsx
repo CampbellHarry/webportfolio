@@ -11,7 +11,7 @@ interface BlogProps {
     };
 }
 
-export default function Blog({ params }: BlogProps) {
+export default function Blog({ params }: any) {
     const { _blogid } = params; 
 
     const [blogs, setBlogs] = useState<any | null>(null);
