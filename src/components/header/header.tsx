@@ -17,12 +17,11 @@ export default function Header() {
   const menuRef = useRef(null);
   useEffect(() => {
     if (isMenuOpen) {
-        // Slide the menu down
         gsap.to(menuRef.current, {
             y: '0%',
             opacity: 1,
-            duration: 0.5,
-            ease: 'power3.out',
+            duration: 0.001,
+            ease: 'power5.out',
             display: 'flex',
         });
         } else {
@@ -30,8 +29,8 @@ export default function Header() {
         gsap.to(menuRef.current, {
             y: '-120%',
             opacity: 1,
-            duration: 0.5,
-            ease: 'power3.in',
+            duration: 0.001,
+            ease: 'power5.in',
             onComplete: () => {
             gsap.set(menuRef.current, { display: 'none' });
             },
@@ -81,7 +80,7 @@ export default function Header() {
       }
     };
   
-    setTimeout(updateUnderline, 50); 
+    setTimeout(updateUnderline, 0.1); 
     window.addEventListener("resize", updateUnderline);
     return () => window.removeEventListener("resize", updateUnderline);
   }, []);
@@ -134,7 +133,7 @@ export default function Header() {
     <header className={`sticky  w-full top-0 z-50 rounded-b-lg backdrop-blur-xl`}>
     <div className='relative w-full'>
       <div
-        className={`lg:absolute top-[0rem] lg:visible lg:flex hidden h-[4.5rem] left-1/2  -translate-x-1/2 w-full z-10 backdrop-blur-lg  shadow-md transition-all duration-500 ${hasScrolled ? 'border-muted border-b' : 'border border-muted'}`}
+        className={`lg:absolute top-[0rem] lg:visible lg:flex hidden h-[4.5rem] left-1/2  -translate-x-1/2 w-full z-10 backdrop-blur-lg  shadow-md transition-all duration-100 ${hasScrolled ? 'border-muted border-b' : 'border border-muted'}`}
         style={{
             width: hasScrolled ? '100%' : '25rem',
             top: hasScrolled ? '0' : '0.73rem',
@@ -163,7 +162,7 @@ export default function Header() {
                 <Link
                 key={item.href}
                 href={item.href}
-                className={`nav-link relative z-10 font-semibold text-sm  flex items-center gap-1.5 transition-colors text-foreground hover:text-primary ${
+                className={`nav-link relative z-10 w-full font-semibold text-sm flex items-center gap-1.5 transition-colors text-foreground hover:text-primary ${
                     activeNav === item.href ? "font-semibold" : ""
                 }`}
                 onMouseEnter={(e) => handleMouseEnter(e, item.href)}

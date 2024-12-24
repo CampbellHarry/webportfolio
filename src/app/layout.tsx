@@ -69,17 +69,6 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="./favicon.ico" />
       </head>
-        {/* Google tag (gtag.js)*/}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-B3PCXPVJ0P"></script>
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-B3PCXPVJ0P');
-          `,
-        }} />
             <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#f1f1f1]/70 dark:bg-gradient-to-b dark:from-black dark:to-[#2e3440] scroll-smooth`}
             >

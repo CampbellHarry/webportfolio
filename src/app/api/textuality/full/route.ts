@@ -4,7 +4,7 @@ export async function GET(_req: NextRequest) {
 
     const token = process.env.TEXTUALITY_API_KEY;
 
-    const response = await fetch("http://localhost:3001/api/content/full/j973e3g78ztaq32zk5cxvyz05s756xme", {
+    const response = await fetch("http://localhost:3001/api/content/full/j977aj2be8w7wgyfdbsa5dhs8d768162", {
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`

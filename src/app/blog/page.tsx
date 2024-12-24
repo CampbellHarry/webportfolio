@@ -4,7 +4,8 @@ import Header from "@/components/header/header";
 import { useEffect, useState } from "react";
 
 export default function BlogPage() {
-  const [blogs, setBlogs] = useState([]);
+  const [blogs, setBlogs] = useState<{ results: any[] } | null>(null);
+  console.log(blogs);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -35,17 +36,17 @@ export default function BlogPage() {
           </div>
           <div className="md:grid md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
             {error ? (
-              <p className="text-red-500">Blog page will be operational in aprox 2 days</p>
+              <p className="text-red-500">Soon...</p>
             ) : (
-              blogs?.map((blog: any, index: any) => (
-                <BlogCard
-                  key={index}
-                  title={blog.title}
-                  authorpfp={blog.author.imageUrl}
-                  authorName={blog.author.firstName + " " + blog.author.lastName}
-                  date={new Date(blog._creationTime).toLocaleDateString()}
-                  tags={blog.previousauthors}
-                />
+              blogs?.results?.map((blog, index) => (
+              <BlogCard
+                key={index}
+                title={blog.title}
+                authorpfp={blog.author.imageUrl}
+                authorName={blog.author.firstName + " " + blog.author.lastName}
+                date={new Date(blog._creationTime).toLocaleDateString()}
+                id={blog._id}
+              />
               ))
             )}
           </div>
@@ -56,10 +57,11 @@ export default function BlogPage() {
   );
 }
 
-function BlogCard({ title, authorName, date, tags, authorpfp }: { title: string; authorName: string; date: string; tags: string[], authorpfp: string }) {
+function BlogCard({ title, authorName, date, authorpfp, id }: { title: string; authorName: string; date: string; authorpfp: string, id: string }) {
   return (
-    <div className="flex flex-col gap-4 border w-full p-4 rounded-md bg-white dark:bg-black/60">
-      <div className="flex flex-col gap-2">
+    <a href={`/blog/${id}`}>
+    <div className="flex flex-col gap-4 border w-full px-4 py-4 rounded-md bg-white dark:bg-black/60">
+      <div className="flex flex-col gap-5">
         <h1 className="text-2xl font-bold text-start">{title}</h1>
         <div className="flex flex-row gap-2 items-center">
           <div className="flex flex-row gap-2 items-center">
@@ -73,17 +75,8 @@ function BlogCard({ title, authorName, date, tags, authorpfp }: { title: string;
           •
           <p className="text-neutral-400 text-sm">{date}</p>
         </div>
-        <div className="flex flex-row gap-1 items-start">
-          {tags.map((tag, index) => (
-            <div
-              key={index}
-              className="flex flex-row gap-1 border px-2 py-0.5 rounded-md border-cyan-300 shadow-sm shadow-cyan-400/50 items-center"
-            >
-              <p className="text-neutral-400 font-semibold text-xs">{tag}</p>
-            </div>
-          ))}
-        </div>
       </div>
     </div>
+    </a>
   );
 }

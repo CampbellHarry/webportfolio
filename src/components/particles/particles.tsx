@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect } from 'react'
 import useMousePosition from './usemousepos'
 
@@ -16,8 +15,8 @@ export default function Particles({
   ease = 50,
 }: ParticlesProps) {
 
-var isDark = true
-useEffect(() => {
+  var isDark = true
+  useEffect(() => {
     const theme = window.localStorage.getItem("theme")
     const html = document.querySelector("html")
     if (!html) return
@@ -36,7 +35,7 @@ useEffect(() => {
         isDark = false
     }
     return () => observer.disconnect()
-}, [])
+  }, [])
 
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const canvasContainerRef = useRef<HTMLDivElement>(null)
@@ -55,8 +54,16 @@ useEffect(() => {
     animate()
     window.addEventListener('resize', initCanvas)
 
+    // Set timeout to make particles shoot up after 2 seconds
+    const timeout = setTimeout(() => {
+      circles.current.forEach(circle => {
+        circle.dy = -Math.abs(circle.dy) * 5 // Increase the speed upwards
+      })
+    }, 2000)
+
     return () => {
       window.removeEventListener('resize', initCanvas)
+      clearTimeout(timeout)
     }
   }, [])
 

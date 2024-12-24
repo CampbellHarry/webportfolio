@@ -4,7 +4,9 @@ import Image from 'next/image'
 import Header from "@/components/header/header"
 import { LucideIcon } from 'lucide-react'
 import Footer from '@/components/footer/footer'
-
+import { useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react';
+import { useSwipeable } from 'react-swipeable';
 
 interface TechCardProps {
     icon: any
@@ -34,20 +36,21 @@ export default function WorkPage() {
       <main className="flex-grow py-12 container mx-auto">
         <h1 className="text-3xl font-bold text-start mb-8  mx-auto px-4 ">Latest Projects</h1>
         <div className="md:grid flex flex-col lg:grid-cols-4 gap-4  px-4">
-        <div className='col-span-2'>
+        <div className='col-span-2 w-full'>
             <ProjectCard
             title="Textuality"
             description="Textuality is a content management system that allows users to create, edit, and publish content to the web."
-            imageSrc="/work/textualitymain.png"
+            imageSrc={["/work/textuality/home.png", "/work/textuality/content.png", "/work/textuality/premium.png", "/work/textuality/signin.png", "/work/textuality/tickets.png", "/work/textuality/innertickets.png"]}
             projectType="Content Management System"
+            link="https://textuality.hdev.uk"
             date="October 2024"
             technologies={[
-                { icon: "/icons/typescript.svg", name: "TypeScript", color: "bg-[#000000]", textColor: "text-white", bgColorOn: true },
-                { icon: "/icons/react-2.svg", name: "React", color: "bg-[#000000]", bgColorOn: false },
-                { icon: "/icons/nextjs-icon.svg", name: "Next.js", color: "bg-[#000000]", textColor: "text-white", bgColorOn: false },
-                { icon: "/icons/tailwind.svg", name: "Tailwind CSS", color: "bg-[#000000]", bgColorOn: false },
-                { icon: "/icons/nodejs-icon.svg", name: "Node.js", color: "bg-[#000000]", bgColorOn: false },
-                { icon: "/icons/mysql-logo.svg", name: "MySQL", color: "bg-[#000000]", bgColorOn: false },
+          { icon: "/icons/typescript.svg", name: "TypeScript", color: "bg-[#000000]", textColor: "text-white", bgColorOn: true },
+          { icon: "/icons/react-2.svg", name: "React", color: "bg-[#000000]", bgColorOn: false },
+          { icon: "/icons/nextjs-icon.svg", name: "Next.js", color: "bg-[#000000]", textColor: "text-white", bgColorOn: false },
+          { icon: "/icons/tailwind.svg", name: "Tailwind CSS", color: "bg-[#000000]", bgColorOn: false },
+          { icon: "/icons/nodejs-icon.svg", name: "Node.js", color: "bg-[#000000]", bgColorOn: false },
+          { icon: "/icons/mysql-logo.svg", name: "MySQL", color: "bg-[#000000]", bgColorOn: false },
             ]}
             />
         </div>
@@ -57,6 +60,7 @@ export default function WorkPage() {
           description="HProjects is a project management system that allows users to create, edit, and manage projects and more."
           imageSrc="/work/Screenshot 2024-10-25 165816.png"
           projectType="Project Management System"
+          link="https://hprojects.hdev.uk"
           date="April 2024"
           technologies={[
             { icon: "/icons/typescript.svg", name: "TypeScript", color: "bg-[#000000]", textColor: "text-white", bgColorOn: true },
@@ -75,6 +79,7 @@ export default function WorkPage() {
                 imageSrc="/work/Untitled design (7).png"
                 projectType="Social Media Platform"
                 date="September 2024"
+                link={null}
                 technologies={[
                     { icon: "/icons/typescript.svg", name: "TypeScript", color: "bg-[#000000]", textColor: "text-white", bgColorOn: true },
                     { icon: "/icons/react-2.svg", name: "React", color: "bg-[#000000]", bgColorOn: false },
@@ -91,6 +96,7 @@ export default function WorkPage() {
                 description="Scam Stopper is a fraud prevention system that helps users identify and prevent fraudulent activities."
                 imageSrc="/work/scamstopper3.png"
                 projectType="Fraud Prevention System / Platform"
+                link={null}
                 date="May 2024"
                 technologies={[
                     { icon: "/icons/typescript.svg", name: "TypeScript", color: "bg-[#000000]", textColor: "text-white", bgColorOn: true },
@@ -112,9 +118,10 @@ export default function WorkPage() {
 interface ProjectCardProps {
     title: string
     description: string
-    imageSrc: string
+    imageSrc: string[] | string
     projectType: string
     date: string
+    link: string | null
     technologies: Array<{
       icon: string
       name: string
@@ -124,37 +131,62 @@ interface ProjectCardProps {
     }>
   }
   
-function ProjectCard({
+  export function ProjectCard({
     title,
     description,
     imageSrc,
     projectType,
     date,
+    link,
     technologies
   }: ProjectCardProps) {
+    const router = useRouter();
+    
+    // State to track the current image index
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    useEffect(() => {
+      const images = Array.isArray(imageSrc) ? imageSrc : [imageSrc];
+      
+      const interval = setInterval(() => {
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+      }, 5000);
+      
+      return () => clearInterval(interval);
+    }, [imageSrc]);
+
+    const images = Array.isArray(imageSrc) ? imageSrc : [imageSrc];
+
     return (
-      <div className="relative group aspect-[4/3] sm:aspect-[4/2] rounded-xl overflow-hidden shadow-lg">
-        <Image
-          src={imageSrc}
-          alt={`${title} Project`}
-          layout="fill"
-          objectFit="cover"
-          className="transition-transform duration-300 group-hover:blur-none blur-sm group-hover:scale-105"
-        />
+      <div
+        onClick={() => link && router.push(link)}
+        className="relative dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] hover:dark:[box-shadow:0_-20px_140px_-20px_#ffffff1f_inset] group aspect-[4/3] sm:aspect-[4/2] rounded-tl-[2rem] rounded-xl rounded-br-[2rem] overflow-hidden shadow-lg cursor-pointer"
+      >
+        {images.map((image, index) => (
+          <Image
+            key={index}
+            id={`project-image-${title}-${index}`}
+            src={image}
+            alt={`${title} Project`}
+            layout="fill"
+            objectFit="cover"
+            className={`transition-opacity duration-1000 ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'}`}
+          />
+        ))}
         <div className="absolute inset-0 h bg-gradient-to-t from-black/80 via-black/50 to-transparent p-4 flex flex-col justify-end">
-          <div className='w-full flex flex-col space-y-2 transform transition-all duration-300 ease-in-out group-hover:translate-y-0 xl:translate-y-[4rem] lg:translate-y-[8rem] md:translate-y-40 sm:translate-y-[7rem] translate-y-[8.1rem]'>
-            <div className='flex flex-col lg:flex-row justify-between items-start sm:items-start w-full'>
+          <div className="w-full flex flex-col space-y-2 transform transition-all duration-300 ease-in-out group-hover:translate-y-0 xl:translate-y-[4rem] lg:translate-y-[8rem] md:translate-y-40 sm:translate-y-[7rem] translate-y-[8.1rem]">
+            <div className="flex flex-col lg:flex-row justify-between items-start sm:items-start w-full">
               <h2 className="text-xl font-bold text-white mb-1">{title}</h2>
               <p className="text-sm font-medium text-white flex flex-col sm:flex-row sm:gap-2 items-start sm:items-center">
                 <span>{projectType}</span>
-                <span className='hidden sm:inline'>•</span>
-                <span className='font-semibold'>{date}</span>
+                <span className="hidden sm:inline">•</span>
+                <span className="font-semibold">{date}</span>
               </p>
             </div>
-            <p className='text-sm font-medium text-white text-start opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
+            <p className="text-sm font-medium text-white text-start opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               {description}
             </p>
-            <div className='flex flex-wrap gap-2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
+            <div className="flex flex-wrap gap-2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               {technologies.map((tech, index) => (
                 <TechCard
                   key={index}
@@ -169,7 +201,5 @@ function ProjectCard({
           </div>
         </div>
       </div>
-    )
+    );
   }
-  
-  
