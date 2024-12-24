@@ -71,6 +71,7 @@ export default function PageIndex(){
             projectType="Content Management System"
             link="https://textuality.hdev.uk"
             date="October 2024"
+            type="In Progress"
             technologies={[
                 { icon: "/icons/typescript.svg", name: "TypeScript", color: "bg-[#000000]", textColor: "text-white", bgColorOn: true },
                 { icon: "/icons/react-2.svg", name: "React", color: "bg-[#000000]", bgColorOn: false },
@@ -86,6 +87,7 @@ export default function PageIndex(){
               imageSrc="/work/Screenshot 2024-10-25 165816.png"
               projectType="Project Management System"
               link="https://hprojects.hdev.uk"
+              type="Completed"
               date="April 2024"
               technologies={[
                 { icon: "/icons/typescript.svg", name: "TypeScript", color: "bg-[#000000]", textColor: "text-white", bgColorOn: true },

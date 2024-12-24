@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Header from "@/components/header/header"
-import { LucideIcon } from 'lucide-react'
+import { Check, Loader, Loader2, LucideIcon } from 'lucide-react'
 import Footer from '@/components/footer/footer'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react';
@@ -43,6 +43,7 @@ export default function WorkPage() {
             imageSrc={["/work/textuality/home.png", "/work/textuality/content.png", "/work/textuality/premium.png", "/work/textuality/signin.png", "/work/textuality/tickets.png", "/work/textuality/innertickets.png"]}
             projectType="Content Management System"
             link="https://textuality.hdev.uk"
+            type="In Progress"
             date="October 2024"
             technologies={[
           { icon: "/icons/typescript.svg", name: "TypeScript", color: "bg-[#000000]", textColor: "text-white", bgColorOn: true },
@@ -60,6 +61,7 @@ export default function WorkPage() {
           description="HProjects is a project management system that allows users to create, edit, and manage projects and more."
           imageSrc="/work/Screenshot 2024-10-25 165816.png"
           projectType="Project Management System"
+          type="Completed"
           link="https://hprojects.hdev.uk"
           date="April 2024"
           technologies={[
@@ -122,6 +124,7 @@ interface ProjectCardProps {
     projectType: string
     date: string
     link: string | null
+    type?: string
     technologies: Array<{
       icon: string
       name: string
@@ -138,7 +141,8 @@ interface ProjectCardProps {
     projectType,
     date,
     link,
-    technologies
+    technologies,
+    type,
   }: ProjectCardProps) {
     const router = useRouter();
     
@@ -176,7 +180,22 @@ interface ProjectCardProps {
         <div className="absolute inset-0 h bg-gradient-to-t from-black/80 via-black/50 to-transparent p-4 flex flex-col justify-end">
           <div className="w-full flex flex-col space-y-2 transform transition-all duration-300 ease-in-out group-hover:translate-y-0 xl:translate-y-[4rem] lg:translate-y-[8rem] md:translate-y-40 sm:translate-y-[7rem] translate-y-[8.1rem]">
             <div className="flex flex-col lg:flex-row justify-between items-start sm:items-start w-full">
+              <div className='flex flex-row gap-2'>
               <h2 className="text-xl font-bold text-white mb-1">{title}</h2>
+              {
+                type === "Completed" ? (
+                  <div className="flex items-center gap-1 px-2 py-1 rounded-md bg-green-700 text-white text-sm font-medium">
+                    <Check size={16} />
+                    <span>Completed</span>
+                  </div>
+                ) : type === "In Progress" ? (
+                  <div className="flex items-center gap-1 px-2 py-1 rounded-md bg-yellow-600 text-white text-sm font-medium">
+                    <Loader size={16} />
+                    <span>In Progress</span>
+                  </div>
+                ) : null
+              }
+              </div>
               <p className="text-sm font-medium text-white flex flex-col sm:flex-row sm:gap-2 items-start sm:items-center">
                 <span>{projectType}</span>
                 <span className="hidden sm:inline">•</span>
