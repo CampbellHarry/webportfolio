@@ -28,10 +28,10 @@ function AnimateText() {
       }, []);
 
       return (
-        <div className="fulltopgradient flex flex-row items-center text-center justify-center gap-1 md:gap-3 lg:gap-5">
+        <h2 className="lg:text-6xl gap-4 flex flex-row pb-2 justify-center text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[#B3B3B3] via-[#808080] to-[#B3B3B3] dark:from-[#D9D9D9] dark:via-[#A6A6A6] dark:to-[#D9D9D9] leading-snug">
           <span className="wordshow">Harry</span>
           <span className="wordshow">Campbell</span>
-        </div>
+        </h2>
       );
 }
 

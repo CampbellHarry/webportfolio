@@ -25,7 +25,7 @@ export default function PageIndex(){
           <div className="items-center justify-center h-full flex flex-col">
           <div className="flex flex-col text-center h-full justify-center">
             <img src="https://media.licdn.com/dms/image/v2/D4E03AQE8xiUVqps7_g/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1720299869628?e=1738195200&v=beta&t=8BEWlH2SAWnof_LunZt0Ytf5zaK-_OodJ312TfnvzT0" className="rounded-full z-40 w-40 h-40 mx-auto mb-5" />
-            <h2 className="lg:text-6xl sm:text-3xl text-2xl font-semibold leading-snug">
+            <h2 className="lg:text-6xl text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-blue-500 leading-snug">
               <AnimateText />
             </h2>
             <div className="flex flex-row items-center justify-center gap-4 mt-4">
