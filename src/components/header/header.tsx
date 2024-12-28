@@ -130,7 +130,7 @@ export default function Header() {
   }, [])
   
   return (
-    <header className={`sticky  w-full top-0 z-50 rounded-b-lg backdrop-blur-xl`}>
+    <header className={`sticky  w-full top-0 z-50 rounded-b-lg dark:bg-black/20 bg-white/40 backdrop-blur-xl`}>
     <div className='relative w-full'>
       <div
         className={`lg:absolute top-[0rem] lg:visible lg:flex hidden h-[4.5rem] left-1/2  -translate-x-1/2 w-full z-10 backdrop-blur-lg  shadow-md transition-all duration-100 ${hasScrolled ? 'border-muted border-b' : 'border border-muted'}`}
@@ -183,7 +183,7 @@ export default function Header() {
             </nav>
             <div className="hidden lg:flex items-center justify-end flex-1 lg:w-0 space-x-4">
                 <Link href="/contact">
-                  <Button variant="outline" asChild className='hidden text lg:flex'>
+                  <Button variant="gradient" asChild className='hidden text lg:flex'>
                       Contact
                   </Button>
                 </Link>

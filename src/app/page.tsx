@@ -5,7 +5,7 @@ import Particles from "@/components/particles/particles"
 import { ArrowRight, HardHat, UserCircleIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import AnimateText from "@/components/animatedtext/animation"
+import {AnimateText, AnimateLowerText, BadgeAnimation} from "@/components/animatedtext/animation"
 import Footer from "@/components/footer/footer"
 import { motion } from 'framer-motion'
 import Image from "next/image"
@@ -13,17 +13,9 @@ import Skills from "@/components/skills/skills"
 import { ProjectCard } from "./work/page"
 
 export default function PageIndex(){
-  const skills = [
-    { name: "React", logo: "/icons/react-2.svg", colour: "blue", description: "A JavaScript library for building user interfaces" },
-    { name: "Next.js", logo: "/icons/nextjs-icon.svg", colour: "black", description: "The React Framework for Production" },
-    { name: "Tailwind CSS", logo: "/icons/tailwind.svg", colour: "blue", description: "A utility-first CSS framework for rapid UI development" },
-    { name: "Node.js", logo: "/icons/nodejs-icon.svg", colour: "green", description: "A JavaScript runtime built on Chrome's V8 JavaScript engine" },
-    { name: "MySQL", logo: "/icons/mysql-logo.svg", colour: "blue", description: "An open-source relational database management system" },
-    { name: "MongoDB", logo: "/icons/mongodb-icon.svg", colour: "green", description: "A general purpose, document-based, distributed database" },
-    
-  ]
+
   return(
-    <div className="w-full min-h-screen flex flex-col">
+    <div className="w-full min-h-screen flex flex-col relative">
       <Header />
       <main className="flex-grow py-12 container mx-auto">
         <div className="w-full relative border-muted border  overflow-hidden bg-gradient-to-t from-neutral-300 to-white dark:bg-gradient-to-t dark:from-black dark:to-[#2e3440] items-center justify-center transition-all  rounded-lg h-[40rem] p-4">
@@ -37,29 +29,29 @@ export default function PageIndex(){
               <AnimateText />
             </h2>
             <div className="flex flex-row items-center justify-center gap-4 mt-4">
-              <Badge variant="outline">Software Engineer</Badge>
-              <Badge variant="outline">Full Stack Developer</Badge>
-              <Badge variant="outline">Cyber Security Engineer</Badge>
+              <BadgeAnimation />
             </div>
             <div className="w-full mt-5 flex items-center justify-center">
               <p className="text-md text-foreground/90 text-center md:w-1/2">
-                I'm a software engineer committed to delivering secure, fast, and reliable systems that meet and exceed business needs.
+              <AnimateLowerText />
               </p>
             </div>
             <div className="flex flex-row items-center justify-center gap-5 w-full mt-5">
               <Link href="/contact">
-                <Button variant="gradient" size="lg" asChild className="text-md rounded-xl font-semibold">
+                <Button variant="gradient" size="lg" asChild className="text-md bg-primary text-background rounded-xl font-semibold">
                   Contact Me
                 </Button>
               </Link>
               <Link href="/resume/Harry Campbell (2).pdf">
-                <Button variant="ghost" size="lg" asChild className="text-md rounded-xl font-semibold">
+                <Button variant="gradient" size="lg" asChild className="text-md rounded-xl font-semibold">
                   Resume
                 </Button>
               </Link>
             </div>
           </div>
           </div>
+        </div>
+        <div className="container mx-auto mt-10 flex flex-col px-2">
         </div>
         <div className="container mx-auto mt-10 flex flex-col px-2">
           <h2 className="text-3xl font-semibold text-start">Recent Work</h2> 

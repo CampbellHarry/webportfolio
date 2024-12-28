@@ -22,7 +22,7 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         publish: "bg-green-700 text-success-foreground hover:bg-green-700/90",
         gradient:
-          "bg-foreground group relative text-primary text-background z-20 overflow-hidden backdrop-blur-lg transition-colors hover:border-muted-foreground border dark:hover:bg-white/10 dark:hover:text-white hover:bg-black/80",
+          "bg-muted group relative text-primary text-foreground z-20 overflow-hidden backdrop-blur-lg transition-colors hover:border-muted-foreground border dark:hover:bg-white/10 dark:hover:text-white hover:bg-black/80",
       },
       size: {
         default: "h-10 px-4 py-2",
