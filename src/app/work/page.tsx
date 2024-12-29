@@ -164,7 +164,7 @@ interface ProjectCardProps {
     return (
       <div
         onClick={() => link && router.push(link)}
-        className="relative dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] hover:dark:[box-shadow:0_-20px_140px_-20px_#ffffff1f_inset] group aspect-[4/3] sm:aspect-[4/2] rounded-tl-[2rem] rounded-xl rounded-br-[2rem] overflow-hidden shadow-lg cursor-pointer"
+        className="relative dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] hover:dark:[box-shadow:0_-20px_140px_-20px_#ffffff1f_inset] group aspect-[4/3] sm:aspect-[4/2] md:rounded-tl-[2rem] rounded-xl md:rounded-br-[2rem] overflow-hidden shadow-lg cursor-pointer"
       >
         {images.map((image, index) => (
           <Image
@@ -177,24 +177,24 @@ interface ProjectCardProps {
             className={`transition-opacity duration-1000 ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'}`}
           />
         ))}
-        <div className="absolute inset-0 h bg-gradient-to-t from-black/80 via-black/50 to-transparent p-4 flex flex-col justify-end">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-4 flex flex-col justify-end">
           <div className="w-full flex flex-col space-y-2 transform transition-all duration-300 ease-in-out group-hover:translate-y-0 xl:translate-y-[4rem] lg:translate-y-[8rem] md:translate-y-40 sm:translate-y-[7rem] translate-y-[8.1rem]">
             <div className="flex flex-col lg:flex-row justify-between items-start sm:items-start w-full">
               <div className='flex flex-row gap-2'>
-              <h2 className="text-xl font-bold text-white mb-1">{title}</h2>
-              {
-                type === "Completed" ? (
-                  <div className="flex items-center gap-1 px-2 py-1 rounded-md bg-green-700 text-white text-sm font-medium">
-                    <Check size={16} />
-                    <span>Completed</span>
-                  </div>
-                ) : type === "In Progress" ? (
-                  <div className="flex items-center gap-1 px-2 py-1 rounded-md bg-yellow-600 text-white text-sm font-medium">
-                    <Loader size={16} />
-                    <span>In Progress</span>
-                  </div>
-                ) : null
-              }
+                <h2 className="text-xl font-bold text-white mb-1">{title}</h2>
+                {
+                  type === "Completed" ? (
+                    <div className="flex items-center gap-1 px-2 py-1 rounded-md bg-green-700 text-white text-sm font-medium">
+                      <Check size={16} />
+                      <span>Completed</span>
+                    </div>
+                  ) : type === "In Progress" ? (
+                    <div className="flex items-center gap-1 px-2 py-1 rounded-md bg-yellow-600 text-white text-sm font-medium">
+                      <Loader size={16} />
+                      <span>In Progress</span>
+                    </div>
+                  ) : null
+                }
               </div>
               <p className="text-sm font-medium text-white flex flex-col sm:flex-row sm:gap-2 items-start sm:items-center">
                 <span>{projectType}</span>

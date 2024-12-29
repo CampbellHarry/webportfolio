@@ -28,10 +28,10 @@ function AnimateText() {
       }, []);
 
       return (
-        <h2 className="lg:text-6xl gap-4 flex flex-row pb-2 justify-center text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[#B3B3B3] via-[#808080] to-[#B3B3B3] dark:from-[#D9D9D9] dark:via-[#A6A6A6] dark:to-[#D9D9D9] leading-snug">
-          <span className="wordshow">Harry</span>
-          <span className="wordshow">Campbell</span>
-        </h2>
+        <div className="fulltopgradient flex flex-row items-center text-center justify-center gap-2 md:gap-2 lg:gap-3">
+            <span className="wordshow  tracking-wide">Harry</span>
+            <span className="wordshow tracking-wide">Campbell</span>
+        </div>
       );
 }
 
@@ -88,9 +88,9 @@ function BadgeAnimation(){
 
       return (
         <div className="flex flex-row items-center justify-center gap-4">
-              <Badge variant="outline" className="badge">Software Engineer</Badge>
-              <Badge variant="outline" className="badge">Full Stack Developer</Badge>
-              <Badge variant="outline" className="badge">Cyber Security Engineer</Badge>
+              <Badge variant="secondary" className="badge">Software Engineer</Badge>
+              <Badge variant="secondary" className="badge">Full Stack Developer</Badge>
+              <Badge variant="secondary" className="badge">Cyber Security Engineer</Badge>
         </div>
       );
 }

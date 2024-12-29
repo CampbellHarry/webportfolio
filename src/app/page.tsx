@@ -25,16 +25,18 @@ export default function PageIndex(){
           <div className="items-center justify-center h-full flex flex-col">
           <div className="flex flex-col text-center h-full justify-center">
             <img src="https://media.licdn.com/dms/image/v2/D4E03AQE8xiUVqps7_g/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1720299869628?e=1738195200&v=beta&t=8BEWlH2SAWnof_LunZt0Ytf5zaK-_OodJ312TfnvzT0" className="rounded-full z-40 w-40 h-40 mx-auto mb-5" />
-            <h2 className="lg:text-6xl text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-blue-500 leading-snug">
+            <h2 className="lg:text-6xl text-5xl font-semibold leading-loose ">
               <AnimateText />
             </h2>
-            <div className="flex flex-row items-center justify-center gap-4 mt-4">
+            <div className="flex flex-row items-center justify-center gap-4 mt-1">
               <BadgeAnimation />
             </div>
             <div className="w-full mt-5 flex items-center justify-center">
-              <p className="text-md text-foreground/90 text-center md:w-1/2">
-              <AnimateLowerText />
+              <div className="px-4 py-3 items-center w-full md:w-7/12 border dark:bg-muted/20 bg-muted flex justify-center text-background rounded-2xl shadow-lg transform transition-transform hover:scale-105">
+              <p className="text-md text-muted-foreground w-auto  text-center">
+                <AnimateLowerText />
               </p>
+              </div>
             </div>
             <div className="flex flex-row items-center justify-center gap-5 w-full mt-5">
               <Link href="/contact">
