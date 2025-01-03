@@ -32,7 +32,7 @@ export default function PageIndex(){
               <BadgeAnimation />
             </div>
             <div className="w-full mt-5 flex items-center justify-center">
-              <div className="px-4 py-3 items-center w-full md:w-7/12 border dark:bg-muted/20 bg-muted flex justify-center text-background rounded-2xl shadow-lg transform transition-transform hover:scale-105">
+              <div className="px-4 py-3 items-center w-full md:w-7/12 overflow-hidden border dark:bg-muted/20 bg-muted flex justify-center text-background rounded-2xl shadow-lg transform transition-transform hover:scale-105">
               <p className="text-md text-muted-foreground w-auto  text-center">
                 <AnimateLowerText />
               </p>

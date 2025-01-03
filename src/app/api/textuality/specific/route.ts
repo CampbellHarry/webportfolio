@@ -9,7 +9,7 @@ export async function GET(request: NextRequest) {
     }
 
     const response = await fetch(
-        `http://localhost:3001/api/content/exact/j977aj2be8w7wgyfdbsa5dhs8d768162/${id}`,
+        `https://textuality.hdev.uk/api/content/exact/kx717kzet10bb0ey83q5dpzzhs77n5b9/${id}`,
         {
             headers: {
                 'Content-Type': 'application/json',

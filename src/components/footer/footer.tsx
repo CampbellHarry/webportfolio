@@ -33,7 +33,7 @@ export default function Footer() {
       }, [])
 
     return (
-        <footer className="flex flex-col items-center dark:border-t-[#2e3440] bg-[#e9e6e6] border-t-4 pt-10 dark:bg-[#1a1e25] pb-20 justify-center w-full">
+        <footer className="flex flex-col items-center dark:border-t-[#2e3440] bg-[#e9e6e6] border-t-4 pt-10 dark:bg-[#1a1e25] z-50 pb-20 justify-center w-full">
             <div className="flex flex-col md:flex-row md:gap-0 gap-5 md:justify-between container mx-auto px-4">
                 <div className="flex flex-col items-start gap-5">
                     <h1 className="text-lg font-bold">hdev.uk</h1>
