@@ -137,7 +137,7 @@ export default function BlogPage() {
                     date={blog._creationTime}
                     title={blog.title}
                     description={blog.description}
-                    href={`/blog/${blog._id}`}
+                    href={`/blog/${blog.slug || blog._id}`}
                   />
                 ))
               }
