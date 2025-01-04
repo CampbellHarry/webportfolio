@@ -3,6 +3,12 @@ import { CalendarDaysIcon } from 'lucide-react';
 
 export default function BlogTitle({data: blogs, filedata: fileget, wholedata, author}: {data: any, filedata: any, wholedata: any, author: any}) {
     console.log(author);
+    const date = new Date(fileget?.[0]?.updated).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+    console.log(fileget?.[0]?.updated);
     return(
     <div className='flex font-bold text-3xl mt-2 dark:text-white text-black flex-col gap-1'>
         <p>{fileget?.title}</p>
@@ -18,7 +24,7 @@ export default function BlogTitle({data: blogs, filedata: fileget, wholedata, au
                 <div className="flex flex-row gap-2 items-center"><p className="font-normal text-xs dark:text-gray-400">{readTimeCalculation(wholedata?.map((item: any) => item.value).join(' ') || '')}  minute read</p>
                     <p>·</p>
                     <p className="font-normal text-xs dark:text-gray-400 flex items-center justify-center flex-row gap-0.5">
-                        <CalendarDaysIcon height={18} /> {new Date(fileget?._creationTime).toDateString()}
+                        <CalendarDaysIcon height={18} /> {date}
                     </p>
                 </div>
             </div>
