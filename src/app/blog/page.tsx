@@ -134,7 +134,7 @@ export default function BlogPage() {
                 blogs?.results.map((blog) => (
                   <BlogCard
                     key={blog._id}
-                    date={blog._creationTime}
+                    date={blog.updated}
                     title={blog.title}
                     description={blog.description}
                     href={`/blog/${blog.slug || blog._id}`}
