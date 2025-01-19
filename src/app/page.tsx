@@ -440,11 +440,11 @@ export default function PageIndex(){
       <MovingCommand setmenu={setIsMenuOpen} isopen={isMenuOpen} />
       <Header />
       <main className="flex-grow py-12 md:-mt-24 container mx-auto lg:px-24 h-full flex flex-col  items-center justify-center">
-        <div className="flex w-full h-full items-start justify-start flex-col">
-          <h1 className="text-4xl font-bold px-3">Harry Campbell</h1>
-          <h2 className="text-md font-light px-3 text-foreground mt-3">Lead Developer & Founder at Hdev</h2>
-          <h3 className="text-md font-light px-3 text-foreground/70 mt-1">Focused on Secure Development, Performance and User Experience.</h3>
-          <div className="w-auto cursor-pointer px-3 flex items-center justify-start gap-4 mt-2 group hover:bg-muted-foreground/20 py-1 rounded-md" onClick={() => setIsMenuOpen(true)}>
+        <div className="flex w-full h-full items-start justify-start flex-col z-50">
+          <h1 className="text-4xl z-50 font-bold px-3">Harry Campbell</h1>
+          <h2 className="text-md font-light px-3 text-foreground mt-3 z-50">Lead Developer & Founder at Hdev</h2>
+          <h3 className="text-md font-light px-3 text-foreground/70 z-50 mt-1">Focused on Secure Development, Performance and User Experience.</h3>
+          <div className="w-auto cursor-pointer px-3 flex items-center z-50  justify-start gap-4 mt-2 group hover:bg-muted-foreground/20 py-1 rounded-md" onClick={() => setIsMenuOpen(true)}>
             <p className="text-lg ">Press </p><div className="flex items-center gap-2"><Badge className="rounded-sm group-hover:border group-hover:border-muted">Ctrl</Badge><Badge className="rounded-sm group-hover:border group-hover:border-muted ">K</Badge></div><p> to start</p> <ArrowRight size={18} className="text-foreground/70 group-hover:translate-x-1.5 transition-all group-hover:text-foreground/100"/>
           </div>
           <div className="flex flex-row gap-4 px-3 mt-4">
@@ -460,7 +460,7 @@ export default function PageIndex(){
             </Link>
           </div>
         </div>
-        <div className="absolute w-96 h-96 ml-44 rounded-full blur-[90px] bg-cyan-500/10 z-0"></div>
+        <div className="absolute w-96 h-96 ml-44 rounded-full blur-[90px] bg-cyan-500/10 z-10"></div>
       </main>
       <Footer />
     </div>
