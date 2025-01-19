@@ -2,17 +2,19 @@
 
 import { useEffect, useState, useRef } from 'react'
 import Link from 'next/link'
-import { Menu, X, Book, Home, HardHat, Text, Sun, Moon } from 'lucide-react'
+import { Menu, X, Book, Home, HardHat, Text, Sun, Moon, Building2, Command } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { gsap } from 'gsap';
+import { MovingCommand } from '@/app/page'
 
 
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isCommandmenuOpen, setIsCommandMenuOpen] = useState(false)
   const [mainlocation, setMainLocation] = useState({ left: 0, width: 0 });
   const [hasScrolled, setHasScrolled] = useState(false)
-  const [underlineStyle, setUnderlineStyle] = useState({ left: mainlocation.left, width: mainlocation.width })
+  const [underlineStyle, setUnderlineStyle] = useState({ left: mainlocation.left, width: mainlocation.width, visibility: "hidden" });
   const [activeNav, setActiveNav] = useState<string | null>(null)
   const menuRef = useRef(null);
   useEffect(() => {
@@ -58,7 +60,7 @@ export default function Header() {
       const path = window.location.pathname;
       const navItems = [
         { label: "Home", href: "/" },
-        { label: "Work", href: "/work" },
+        { label: "Projects", href: "/projects" },
         { label: "Blog", href: "/blog" },
         { label: "About", href: "/about" },
       ];
@@ -67,15 +69,13 @@ export default function Header() {
       if (activeItem) {
         const element = document.querySelector(`.nav-link[href='${activeItem.href}']`) as HTMLElement;
         
-        console.log("Active Link Element:", element);
   
         if (element) {
           const { offsetLeft, offsetWidth } = element;
           const paddedWidth = offsetWidth; 
-          console.log("Calculated Underline Position:", offsetLeft, paddedWidth);
   
-          setUnderlineStyle({ left: offsetLeft, width: paddedWidth });
-          setMainLocation({ left: offsetLeft, width: paddedWidth });
+          setUnderlineStyle({ left: offsetLeft - 10, width: paddedWidth - 20, visibility: "visible" });
+          setMainLocation({ left: offsetLeft - 40, width: paddedWidth });
         }
       }
     };
@@ -87,19 +87,27 @@ export default function Header() {
   const handleMouseEnter = (e: React.MouseEvent, href: string) => {
     const target = e.currentTarget as HTMLElement
     const { offsetLeft, offsetWidth } = target
-    console.log(offsetLeft, offsetWidth)
     setUnderlineStyle({
-      left: offsetLeft,
-      width: offsetWidth,
+      left: offsetLeft - 8,
+      width: offsetWidth - 20,
+      visibility: "visible",
     })
   }
 
   const handleMouseLeave = () => {
-    console.log("Resetting Underline to:", mainlocation);
-    setUnderlineStyle({
-      left: mainlocation.left,
-      width: mainlocation.width,
-    });
+    if (mainlocation.left === 0){
+      setUnderlineStyle({
+        left: 0 - 120,
+        width: 0 - 120,
+        visibility: "hidden",
+      });
+    } else {
+      setUnderlineStyle({
+        left: mainlocation.left + 30,
+        width: mainlocation.width - 20,
+        visibility: "visible",
+      });
+    }
   };
 
   var isDark = true
@@ -130,20 +138,20 @@ export default function Header() {
   }, [])
   
   return (
-    <header className={`sticky  w-full top-0 z-50 rounded-b-lg dark:bg-black/20 bg-white/40 backdrop-blur-xl`}>
+    <>
+    <MovingCommand setmenu={setIsCommandMenuOpen} isopen={isCommandmenuOpen} />
+    <header className={`sticky w-full top-0 z-50 rounded-b-lg backdrop-blur-xl`}>
     <div className='relative w-full'>
       <div
-        className={`lg:absolute top-[0rem] lg:visible lg:flex hidden h-[4.5rem] left-1/2  -translate-x-1/2 w-full z-10 backdrop-blur-lg  shadow-md transition-all duration-100 ${hasScrolled ? 'border-muted border-b' : 'border border-muted'}`}
+        className={`lg:absolute top-[0rem] lg:visible rounded-b-xl  lg:flex hidden h-[4.5rem] left-1/2 -translate-x-1/2 w-full z-10 backdrop-blur-lg shadow-md transition-all duration-100`}
         style={{
-            width: hasScrolled ? '100%' : '25rem',
-            top: hasScrolled ? '0' : '0.73rem',
-            height: hasScrolled ? '4.5rem' : '3rem',
-            borderRadius: hasScrolled ? '0' : '1rem',
-            backgroundColor: hasScrolled ? `${isDark ? 'bg-[#282c34]' : 'bg-black'}` : 'bg-white',
+            width: hasScrolled ? '100%' : '100%',
+            top: hasScrolled ? '0' : '0',
+            height: hasScrolled ? '4.5rem' : '4.5rem',
         }}
       />
     </div>
-      <div className="container mx-auto px-4 ">
+      <div className="container mx-auto lg:px-24">
         <div className="flex justify-between z-50 items-center py-4 lg:justify-start md:space-x-10">
           <div className="flex justify-start z-50 items-center gap-5 lg:w-0 lg:flex-1">
             <Link href="/" className="flex items-center">
@@ -152,17 +160,17 @@ export default function Header() {
             </Link>
           </div>
 
-          <nav className="hidden lg:flex z-20 items-center space-x-8 relative">
+          <nav className="hidden lg:flex z-20 items-center relative">
             {[
                 { label: "Home", icon: <Home size={18} />, href: "/" },
-                { label: "Work", icon: <HardHat size={18} />, href: "/work" },
+                { label: "Projects", icon: <Building2 size={18} />, href: "/projects" },
                 { label: "Blog", icon: <Book size={18} />, href: "/blog" },
                 { label: "About", icon: <Text size={18} />, href: "/about" },
             ].map((item) => (
                 <Link
                 key={item.href}
                 href={item.href}
-                className={`nav-link relative z-10 w-full font-semibold text-sm flex items-center gap-1.5 transition-colors text-foreground hover:text-primary ${
+                className={`nav-link relative z-10 py-2 w-full px-2 font-semibold text-sm flex items-center gap-1.5 transition-colors text-foreground hover:text-primary ${
                     activeNav === item.href ? "font-semibold" : ""
                 }`}
                 onMouseEnter={(e) => handleMouseEnter(e, item.href)}
@@ -173,10 +181,11 @@ export default function Header() {
                 </Link>
             ))}
             <span
-              className="absolute bottom-0 rounded-sm border-accent h-[30px] z-0 dark:bg-cyan-200/20 bg-cyan-500/20 transition-all duration-300"
+              className="absolute bottom-0 rounded-sm border-accent h-[30px] -top-0.5 z-0 bg-foreground/15  transition-all duration-500"
               style={{
-              left: `${underlineStyle.left}px`,
-              width: `${underlineStyle.width > 1 ? underlineStyle.width + 20 : underlineStyle.width}px`,
+              left: `${underlineStyle.left + 50}px`,
+              width: `${underlineStyle.width > 1 ? underlineStyle.width + 20 : underlineStyle.width - 10000}px`,
+              display: `${underlineStyle.visibility === "visible" ? "block" : "none"}`,
               transform: `translate(-40px, 5px)`, 
               }}
             />
@@ -187,6 +196,9 @@ export default function Header() {
                       Contact
                   </Button>
                 </Link>
+                <Button variant="outline" asChild className='cursor-pointer text flex' onClick={() => setIsCommandMenuOpen(!isCommandmenuOpen)}>
+                  <Command size={18} />
+                </Button>
             </div>
             <div className="flex lg:hidden">
                 <Button
@@ -251,5 +263,6 @@ export default function Header() {
             </div>
         </div>
     </header>
+    </>
   )
 }

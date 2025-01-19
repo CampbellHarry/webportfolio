@@ -65,12 +65,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark transition-all duration-500 ease-in-out">
       <head>
         <link rel="icon" href="./favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300;1,300&family=Noto+Sans+JP:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet"></link>
       </head>
             <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#f1f1f1]/70 dark:bg-gradient-to-b dark:from-black dark:to-[#2e3440] scroll-smooth`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth`}
             >
         {children}
       </body>

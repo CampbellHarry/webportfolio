@@ -2,13 +2,11 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { CalendarDaysIcon } from 'lucide-react';
 
 export default function BlogTitle({data: blogs, filedata: fileget, wholedata, author}: {data: any, filedata: any, wholedata: any, author: any}) {
-    console.log(author);
     const date = new Date(fileget?.[0]?.updated).toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
         day: 'numeric'
     });
-    console.log(fileget?.[0]?.updated);
     return(
     <div className='flex font-bold text-3xl mt-2 dark:text-white text-black flex-col gap-1'>
         <p>{fileget?.title}</p>

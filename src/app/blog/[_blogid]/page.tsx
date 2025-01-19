@@ -8,6 +8,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { AlertCircle, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
+import { MovingCommand } from '@/app/page'
 
 interface BlogProps {
   params: {
@@ -47,9 +48,13 @@ export default function Blog({ params }: BlogProps) {
       })
   }, [_blogid])
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+
   return (
-    <div className="flex flex-col min-h-screen ">
+    <div className="flex flex-col min-h-screen bg-[#f1f1f1] dark:bg-[#08070b]">
       <Header />
+      <MovingCommand setmenu={setIsMenuOpen} isopen={isMenuOpen} />
       <main className="flex-grow container mx-auto px-4 py-8 md:py-12">
         <div className=" mx-auto">
         <div className='flex flex-row gap-2 items-center mb-2'>

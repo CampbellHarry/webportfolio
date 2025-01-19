@@ -17,7 +17,6 @@ export async function GET(_req: NextRequest) {
     if (data.error) {
         return NextResponse.json({ error: data.error }, { status: 500 });
     } else {
-        console.log(data);
         return NextResponse.json({ blogs: data }, { status: 200 });
     }
 }

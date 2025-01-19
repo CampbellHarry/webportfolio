@@ -4,6 +4,7 @@ import Header from "@/components/header/header";
 import { ArrowRight, Book } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { MovingCommand } from "../page";
 
 export default function BlogPage() {
   const [blogs, setBlogs] = useState<{ results: any[] } | null>(null);
@@ -74,9 +75,12 @@ export default function BlogPage() {
     }
   };
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <div className="w-full min-h-screen flex flex-col">
+    <div className="w-full min-h-screen flex flex-col bg-[#f1f1f1] dark:bg-[#08070b]">
       <Header />
+      <MovingCommand setmenu={setIsMenuOpen} isopen={isMenuOpen} />
       <main className="flex-grow h-full py-12">
         <div className="md:container mx-auto flex flex-col h-full px-4">
           <div className="flex flex-col gap-1 w-full">
