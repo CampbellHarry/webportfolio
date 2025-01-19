@@ -196,7 +196,7 @@ export default function Header() {
                       Contact
                   </Button>
                 </Link>
-                <Button variant="outline" asChild className='cursor-pointer text flex' onClick={() => setIsCommandMenuOpen(!isCommandmenuOpen)}>
+                <Button variant="secondary" asChild className='cursor-pointer text flex' onClick={() => setIsCommandMenuOpen(!isCommandmenuOpen)}>
                   <Command size={18} />
                 </Button>
             </div>
