@@ -205,14 +205,14 @@ function MovingCommand({ setmenu, isopen }: { setmenu: (isopen: any) => void, is
 
     const handleOuterClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (target.closest("#outerboundclose")) {
-        setIsMenuOpen(false);
-        setmenu(false);
-        document.body.style.overflowY = "auto";
-        setFilteredListGeneral(generalcommands);
-        setFilteredListCommands(commands);
-        setFilteredListWriting(writingcommands);
-        searchCommands("");
+      if (target.id === "outerboundclose") {
+      setIsMenuOpen(false);
+      setmenu(false);
+      document.body.style.overflowY = "auto";
+      setFilteredListGeneral(generalcommands);
+      setFilteredListCommands(commands);
+      setFilteredListWriting(writingcommands);
+      searchCommands("");
       }
     };
 
@@ -260,9 +260,9 @@ function MovingCommand({ setmenu, isopen }: { setmenu: (isopen: any) => void, is
     isMenuOpen && (
       <div
         id="outerboundclose"
-        className="absolute w-full transition-all  h-full bg-black/20 backdrop-blur-md flex items-center justify-center z-50"
+        className="absolute w-full transition-all  h-full bg-black/20 backdrop-blur-md flex items-center justify-center z-40"
       >
-        <div className="rounded-lg top-24 absolute shadow-md md:max-h-[35vh] overflow-y-scroll barhide h-auto transition-all bg-muted/60 flex flex-col backdrop-blur-sm py-2 duration-300 ease-in-out w-full md:max-w-[700px]">
+        <div className="rounded-lg top-24 absolute shadow-md md:max-h-[35vh] overflow-y-scroll barhide h-auto transition-all bg-muted/60 flex flex-col backdrop-blur-sm py-2 z-50 duration-300 ease-in-out w-full md:max-w-[700px]">
           <input
             placeholder="Type a command..."
             className="w-full bg-transparent pt-2 border-0 px-3 focus:ring-0 text-sm focus:outline-none text-white"
