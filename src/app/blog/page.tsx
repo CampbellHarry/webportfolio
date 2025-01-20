@@ -84,7 +84,7 @@ export default function BlogPage() {
       <main className="flex-grow h-full py-12">
         <div className="md:container mx-auto flex flex-col h-full px-4">
           <div className="flex flex-col gap-1 w-full">
-            <h1 className="text-5xl font-bold leading-snug w-7/12  text-start">
+            <h1 className="text-2xl md:text-5xl font-bold leading-snug md:w-7/12  text-start">
               My writing about my experience being a{" "}
               <span className="bg-cyan-500/10 text-cyan-400 px-2">
                 full stack developer
