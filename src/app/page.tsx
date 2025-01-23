@@ -46,6 +46,7 @@ function MovingCommand({ setmenu, isopen }: { setmenu: (isopen: any) => void, is
   }
 
   function handleShortcut(command: string) {
+    console.log(command, "a");
     switch (command) {
       case "CTRL E":
         window.location.href = "mailto:hello@hdev.uk";
