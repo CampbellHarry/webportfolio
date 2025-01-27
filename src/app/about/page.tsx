@@ -6,7 +6,7 @@ import Particles from "@/components/particles/particles";
 import { MovingCommand } from "../page";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Clipboard, Lock } from "lucide-react";
+import { Clipboard } from "lucide-react";
 import { TechCard } from "../projects/page";
 
 interface TechCardProps {

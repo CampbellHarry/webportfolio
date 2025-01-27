@@ -8,7 +8,6 @@ import { MovingCommand } from "../page";
 
 export default function BlogPage() {
   const [blogs, setBlogs] = useState<{ results: any[] } | null>(null);
-  const [error, setError] = useState<string | null>(null);
   const [category, setCategory] = useState<string>("all");
   const [mainlocation, setMainLocation] = useState({ left: 0, width: 0 });
   const [underlineStyle, setUnderlineStyle] = useState({
@@ -24,13 +23,13 @@ export default function BlogPage() {
       .then((res) => res.json())
       .then((data) => {
         if (data.error) {
-          setError(data.error);
+          console.log(data.error);
         } else {
           setBlogs(data.blogs);
         }
       })
       .catch((err) => {
-        setError(err.message);
+        console.log(err.message);
       });
   }, []);
 
@@ -160,7 +159,7 @@ interface BlogCardProps {
   description: string
   href: string
 }
-function BlogCard({ date, title, description, href }: BlogCardProps) {
+function BlogCard({ date, title, description, href }: Readonly<BlogCardProps>) {
   return (
     <div className="flex flex-row gap-4 h-auto">
     <div className="border flex relative justify-center h-auto w-1 bg-cyan-400">

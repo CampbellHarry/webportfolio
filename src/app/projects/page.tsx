@@ -91,13 +91,31 @@ export default function WorkPage() {
             Projects In Progress
           </h2>
           <div className="flex flex-col md:flex-row justify-between mb-10 w-full gap-4">
-            <div className="flex flex-col md:flex-row justify-between w-full gap-4">
+            <div className="flex flex-col justify-between w-full gap-4">
+            <ProjectCard
+                  title="TrackIt"
+                  description="TrackIt is a ticket support software that allows users to create, manage, and solve tickets with their team."
+                  imageSrc="/work/teammate/Screenshot 2025-01-18 163821.png"
+                  projectType="Ticket Support Software"
+                  link="https://textuality.hdev.uk"
+                  type="In Progress"
+                  date="January 2025"
+                  technologies={[
+                { icon: "/icons/typescript.svg", name: "TypeScript", color: "bg-[#000000]", textColor: "text-white", bgColorOn: true },
+                { icon: "/icons/react-2.svg", name: "React", color: "bg-[#000000]", bgColorOn: false },
+                { icon: "/icons/nextjs-icon.svg", name: "Next.js", color: "bg-[#000000]", textColor: "text-white", bgColorOn: false },
+                { icon: "/icons/tailwind.svg", name: "Tailwind CSS", color: "bg-[#000000]", bgColorOn: false },
+                { icon: "/icons/nodejs-icon.svg", name: "Node.js", color: "bg-[#000000]", bgColorOn: false },
+                { icon: "/icons/mysql-logo.svg", name: "MySQL", color: "bg-[#000000]", bgColorOn: false },
+                { icon: "https://cdn4.iconfinder.com/data/icons/google-i-o-2016/512/google_firebase-2-512.png", name: "FireBase", color: "bg-[#000000]", bgColorOn: false },
+                  ]}
+              />
             <ProjectCard
                   title="TeamMate"
                   description="TeamMate is my project on creating a notion, teams, trello like application that allows users to complete any task, project, or goal with their team."
                   imageSrc="/work/teammate/Screenshot 2025-01-18 163821.png"
                   projectType="Team Collaboration Platform"
-                  link="https://textuality.hdev.uk"
+                  link=""
                   type="In Progress"
                   date="January 2025"
                   technologies={[

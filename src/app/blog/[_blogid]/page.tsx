@@ -16,7 +16,7 @@ interface BlogProps {
   }
 }
 
-export default function Blog({ params }: BlogProps) {
+export default function Blog({ params }: Readonly<BlogProps>) {
   const { _blogid } = params
   const [blogs, setBlogs] = useState<any | null>(null)
   const [isLoading, setIsLoading] = useState(true)

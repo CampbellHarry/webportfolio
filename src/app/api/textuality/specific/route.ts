@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
     );
 
     const contentType = response.headers.get('content-type');
-    if (contentType && contentType.includes('application/json')) {
+    if (contentType?.includes('application/json')) {
         const data = await response.json();
         if (data.error) {
             return NextResponse.json({ error: data.error }, { status: 500 });
