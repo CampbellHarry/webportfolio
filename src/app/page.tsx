@@ -189,9 +189,9 @@ function MovingCommand({ setmenu, isopen }: { setmenu: (isopen: any) => void, is
         setIsMenuOpen(false);
         setmenu(false);
         document.body.style.overflowY = "auto";
-        setFilteredListGeneral(generalcommands);
-        setFilteredListCommands(commands);
-        setFilteredListWriting(writingcommands);
+        setFilteredGeneralCommands(generalcommands);
+        setFilteredCommandList(commands);
+        setFilteredWritingCommands(writingcommands);
         searchCommands("");
       }
     };
@@ -202,9 +202,9 @@ function MovingCommand({ setmenu, isopen }: { setmenu: (isopen: any) => void, is
       setIsMenuOpen(false);
       setmenu(false);
       document.body.style.overflowY = "auto";
-      setFilteredListGeneral(generalcommands);
-      setFilteredListCommands(commands);
-      setFilteredListWriting(writingcommands);
+      setFilteredGeneralCommands(generalcommands);
+      setFilteredCommandList(commands);
+      setFilteredWritingCommands(writingcommands);
       searchCommands("");
       }
     };
@@ -227,22 +227,22 @@ function MovingCommand({ setmenu, isopen }: { setmenu: (isopen: any) => void, is
       document.removeEventListener("keydown", handleCtrlShortcut);
     };
   }, []);
-  const [filteredlistgeneral, setFilteredListGeneral] = useState(generalcommands);
-  const [filteredlistcommands, setFilteredListCommands] = useState(commands);
-  const [filteredlistwriting, setFilteredListWriting] = useState(writingcommands);
-
+  const [filteredGeneralCommands, setFilteredGeneralCommands] = useState(generalcommands);
+  const [filteredCommandList, setFilteredCommandList] = useState(commands);
+  const [filteredWritingCommands, setFilteredWritingCommands] = useState(writingcommands);
+  
   function searchCommands(search: string) {
-    setFilteredListGeneral(
+    setFilteredGeneralCommands(
       generalcommands.filter((command) =>
         command.title.toLowerCase().includes(search.toLowerCase())
       )
     );
-    setFilteredListCommands(
+    setFilteredCommandList(
       commands.filter((command) =>
         command.title.toLowerCase().includes(search.toLowerCase())
       )
     );
-    setFilteredListWriting(
+    setFilteredWritingCommands(
       writingcommands.filter((command) =>
         command.title.toLowerCase().includes(search.toLowerCase())
       )
@@ -262,13 +262,13 @@ function MovingCommand({ setmenu, isopen }: { setmenu: (isopen: any) => void, is
             autoFocus
             onChange={(e) => searchCommands(e.target.value)}
           />
-        {filteredlistgeneral.length > 0 && (
+        {filteredGeneralCommands.length > 0 && (
           <div className="flex flex-col gap-2 mt-4 ">
             <p className="text-muted-foreground px-3 text-xs sticky -top-2 w-full py-2 bg-white dark:bg-[#19191a] z-50 backdrop-blur-3xl">
               GENERAL
             </p>
             <div className="flex flex-col">
-              {filteredlistgeneral.map((command, index) => (
+              {filteredGeneralCommands.map((command, index) => (
                 <div
                   key={index}
                   className={`flex px-3 group items-center justify-between gap-2 cursor-pointer hover:bg-muted/60 py-1.5 ${
@@ -312,13 +312,13 @@ function MovingCommand({ setmenu, isopen }: { setmenu: (isopen: any) => void, is
             </div>
           </div>
         )}
-        {filteredlistcommands.length > 0 && (
+        {filteredCommandList.length > 0 && (
           <div className="flex flex-col gap-2 mt-4 border-t pt-2">
             <p className="text-muted-foreground px-3 text-xs sticky -top-2 w-full py-2 bg-white dark:bg-[#19191a] z-50 backdrop-blur-3xl">
               IMPORTANT
             </p>
             <div className="flex flex-col">
-              {filteredlistcommands.map((command, index) => (
+              {filteredCommandList.map((command, index) => (
                 <div
                   key={index}
                   className={`flex px-3 group items-center justify-between gap-2 cursor-pointer hover:bg-muted/60 py-1.5 ${
@@ -361,13 +361,13 @@ function MovingCommand({ setmenu, isopen }: { setmenu: (isopen: any) => void, is
             </div>
           </div>
         )}
-        {filteredlistwriting.length > 0 && (
+        {filteredWritingCommands.length > 0 && (
           <div className="flex flex-col gap-2 mt-4 border-t pt-2">
             <p className="text-muted-foreground px-3 text-xs sticky -top-2 w-full py-2 bg-white dark:bg-[#19191a] z-50 backdrop-blur-3xl">
               Writing
             </p>
             <div className="flex flex-col">
-              {filteredlistwriting.map((command, index) => (
+              {filteredWritingCommands.map((command, index) => (
                 <div
                   key={index}
                   className={`flex px-3 group items-center justify-between gap-2 cursor-pointer hover:bg-muted/60 py-1.5 ${
@@ -411,7 +411,7 @@ function MovingCommand({ setmenu, isopen }: { setmenu: (isopen: any) => void, is
           </div>
         )}
         {
-          filteredlistcommands.length === 0 && filteredlistgeneral.length === 0 && filteredlistwriting.length === 0 && (
+          filteredCommandList.length === 0 && filteredGeneralCommands.length === 0 && filteredCommandList.length === 0 && (
             <div className="flex flex-col gap-2 mt-4 border-t pt-2">
               <p className="text-muted-foreground px-3  sticky flex flex-row gap-2 items-center justify-center text-xl -top-2 w-full py-2 bg-white dark:bg-[#19191a] z-50 backdrop-blur-3xl">
               <CircleAlert size={24} className="text-red-500"/> No results found 
