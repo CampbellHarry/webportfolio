@@ -71,26 +71,34 @@ export default function Blog({ params }: Readonly<BlogProps>) {
           >
             Powered by Textuality
           </a>
-          {isLoading ? (
-            <div className="space-y-4">
-              <Skeleton className="h-8 w-3/4" />
-              <Skeleton className="h-4 w-full" />
-              <Skeleton className="h-4 w-full" />
-              <Skeleton className="h-4 w-2/3" />
-            </div>
-          ) : error ? (
-            <Alert variant="destructive">
-              <AlertCircle className="h-4 w-4" />
-              <AlertTitle>Error</AlertTitle>
-              <AlertDescription>{error}</AlertDescription>
-            </Alert>
-          ) : blogs ? (
-            <article className="prose prose-lg w-full">
-              <Gatherer blogs={blogs} />
-            </article>
-          ) : (
-            <p className="text-center text-gray-600">No blog content available.</p>
-          )}
+            {(() => {
+            if (isLoading) {
+              return (
+              <div className="space-y-4">
+                <Skeleton className="h-8 w-3/4" />
+                <Skeleton className="h-4 w-full" />
+                <Skeleton className="h-4 w-full" />
+                <Skeleton className="h-4 w-2/3" />
+              </div>
+              )
+            } else if (error) {
+              return (
+              <Alert variant="destructive">
+                <AlertCircle className="h-4 w-4" />
+                <AlertTitle>Error</AlertTitle>
+                <AlertDescription>{error}</AlertDescription>
+              </Alert>
+              )
+            } else if (blogs) {
+              return (
+              <article className="prose prose-lg w-full">
+                <Gatherer blogs={blogs} />
+              </article>
+              )
+            } else {
+              return <p className="text-center text-gray-600">No blog content available.</p>
+            }
+            })()}
         </div>
       </main>
       <Footer />

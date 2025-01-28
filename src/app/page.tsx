@@ -2,14 +2,11 @@
 import Header from "@/components/header/header"
 import { Badge } from "@/components/ui/badge"
 
-import { ArrowRight, Book, Building2Icon, CircleAlert, Clipboard, Hammer, Link2, MailOpen, Pen, Sun} from "lucide-react"
+import { ArrowRight, Book, Building2Icon, User, CircleAlert, Clipboard, Hammer, Link2, MailOpen, Pen, Sun} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Footer from "@/components/footer/footer"
 
-import {
-  User,
-} from "lucide-react"
 
 import { useEffect, useState } from "react"
 
@@ -85,7 +82,6 @@ function MovingCommand({ setmenu, isopen }: { setmenu: (isopen: any) => void, is
     }
   }
 
-  const [isDark, setIsDark] = useState(true);
   function ThemeToggle() {
     const html = document.querySelector("html");
     if (!html) return;
@@ -95,12 +91,10 @@ function MovingCommand({ setmenu, isopen }: { setmenu: (isopen: any) => void, is
       html.classList.remove("dark");
       html.classList.add("light");
       window.localStorage.setItem("theme", "light");
-      setIsDark(false);
     } else {
       html.classList.remove("light");
       html.classList.add("dark");
       window.localStorage.setItem("theme", "dark");
-      setIsDark(true);
     }
   }
 
@@ -111,11 +105,9 @@ function MovingCommand({ setmenu, isopen }: { setmenu: (isopen: any) => void, is
     if (theme === "light") {
       html.classList.remove("dark");
       html.classList.add("light");
-      setIsDark(false);
     } else {
       html.classList.remove("light");
       html.classList.add("dark");
-      setIsDark(true);
     }
   }, []);
 
