@@ -95,7 +95,7 @@ export default function WorkPage() {
             <ProjectCard
                   title="TrackIt"
                   description="TrackIt is a ticket support software that allows users to create, manage, and solve tickets with their team."
-                  imageSrc="/work/teammate/Screenshot 2025-01-18 163821.png"
+                  imageSrc="/work/trackit/Screenshot 2025-01-31 194035.png"
                   projectType="Ticket Support Software"
                   link="https://textuality.hdev.uk"
                   type="In Progress"
