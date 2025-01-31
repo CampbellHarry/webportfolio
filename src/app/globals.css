@@ -13,6 +13,24 @@ body {
   display: none;
 }
 
+.custom-prose {
+  word-break: keep-all;
+}
+
+.custom-prose h2 {
+  font-size: 2rem;
+  font-weight: semibold;
+  margin-top: 0.1rem;
+  margin-bottom: 1rem;
+}
+
+.custom-prose h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: blue;
+}
+
+
 @layer base {
   :root {
     --background: 0 0% 100%;

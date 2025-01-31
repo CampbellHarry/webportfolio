@@ -145,9 +145,9 @@ export default function Header() {
       <div
         className={`lg:absolute top-[0rem] lg:visible rounded-b-xl  lg:flex hidden h-[4.5rem] left-1/2 -translate-x-1/2 w-full z-10 backdrop-blur-lg shadow-md transition-all duration-100`}
         style={{
-            width: hasScrolled ? '100%' : '100%',
-            top: hasScrolled ? '0' : '0',
-            height: hasScrolled ? '4.5rem' : '4.5rem',
+            width: '100%',
+            top: '0',
+            height:'4.5rem',
         }}
       />
     </div>

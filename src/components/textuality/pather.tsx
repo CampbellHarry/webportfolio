@@ -9,7 +9,7 @@ import React from "react";
 
 export default function Gatherer(blogs: any) {
     return (
-        <div>
+        <div key={blogs?.blogs?.data?.merged?.id}>
             {blogs?.blogs?.data?.merged
                 ?.sort((a: any, b: any) => a.fieldposition - b.fieldposition)
                 ?.map((item: any, index: number) => {

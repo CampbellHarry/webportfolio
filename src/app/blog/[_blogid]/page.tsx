@@ -53,6 +53,7 @@ export default function Blog({ params }: Readonly<BlogProps>) {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#f1f1f1] dark:bg-[#08070b]">
+      
       <Header />
       <MovingCommand setmenu={setIsMenuOpen} isopen={isMenuOpen} />
       <main className="flex-grow container mx-auto px-4 py-8 md:py-12">
@@ -91,7 +92,7 @@ export default function Blog({ params }: Readonly<BlogProps>) {
               )
             } else if (blogs) {
               return (
-              <article className="prose prose-lg w-full">
+              <article className="custom-prose w-full">
                 <Gatherer blogs={blogs} />
               </article>
               )
