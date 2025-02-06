@@ -94,9 +94,9 @@ export default function WorkPage() {
             <div className="flex flex-col justify-between w-full gap-4">
             <ProjectCard
                   title="TrackIt"
-                  description="TrackIt is a ticket support software that allows users to create, manage, and solve tickets with their team."
-                  imageSrc="/work/trackit/Screenshot 2025-01-31 194035.png"
-                  projectType="Ticket Support Software"
+                  description="TrackIt is a simpler SaaS everything platform that allows users to track their projects, tasks, incidents, shifts and more."
+                  imageSrc={["/work/trackit/Screenshot 2025-01-31 194035.png", "/work/trackit/indexpage.png"]}
+                  projectType="Simpler SaaS Everything Platform"
                   link="https://textuality.hdev.uk"
                   type="In Progress"
                   date="January 2025"
@@ -107,6 +107,7 @@ export default function WorkPage() {
                 { icon: "/icons/tailwind.svg", name: "Tailwind CSS", color: "bg-[#000000]", bgColorOn: false },
                 { icon: "/icons/nodejs-icon.svg", name: "Node.js", color: "bg-[#000000]", bgColorOn: false },
                 { icon: "/icons/mysql-logo.svg", name: "MySQL", color: "bg-[#000000]", bgColorOn: false },
+                { icon: "https://cdn.iconscout.com/icon/free/png-256/free-mongodb-logo-icon-download-in-svg-png-gif-file-formats--wordmark-programming-langugae-freebies-pack-logos-icons-1175140.png?f=webp&w=256", name: "MongoDB", color: "bg-[#000000]", bgColorOn: false },
                 { icon: "https://cdn4.iconfinder.com/data/icons/google-i-o-2016/512/google_firebase-2-512.png", name: "FireBase", color: "bg-[#000000]", bgColorOn: false },
                   ]}
               />
