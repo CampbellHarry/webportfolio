@@ -453,7 +453,7 @@ export default function PageIndex(){
             </Link>
           </div>
         </div>
-        <div className="absolute w-96 h-96 ml-44 rounded-full blur-[90px] bg-cyan-500/10 z-10"></div>
+        <div className="absolute w-[96rem] h-96 ml-44 rounded-tl-xl rounded-br-xl blur-[90px] bg-cyan-500/10 z-10"></div>
       </main>
       <Footer />
     </div>
