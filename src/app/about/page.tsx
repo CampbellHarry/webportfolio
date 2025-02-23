@@ -43,7 +43,7 @@ export default function AboutPage() {
             </h1>
             <div className="flex flex-col md:flex-row justify-between w-full gap-1 items-start">
                 <div className="flex flex-row items-start justify-between w-full mr-2">
-                <img src="https://media.licdn.com/dms/image/v2/D4E03AQE8xiUVqps7_g/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1720299869628?e=1742428800&v=beta&t=WlG6Er4wkknA_I2Y1vwMvY1NHShrS999iJpLplWCGR4" alt="Harry Campbell" className="w-full h-auto rounded-md" />
+                <img src="https://media.licdn.com/dms/image/v2/D4E03AQHuwjzDFRxDTQ/profile-displayphoto-shrink_400_400/B4EZUJ12gUHMAg-/0/1739626868751?e=1746057600&v=beta&t=RC0ZRwDCdcsbTpX3p60KBzPylxJcRNbIR9U0wVkPhpI" alt="Harry Campbell" className="w-full h-auto rounded-md" />
                 </div>
                 <div className="flex flex-col w-full ml-4">
                 <p className="text-start text-md mt-4 font-light text-muted-foreground/80">
