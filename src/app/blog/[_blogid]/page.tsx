@@ -56,7 +56,7 @@ export default function Blog({ params }: Readonly<BlogProps>) {
     <div className="flex flex-col min-h-screen bg-[#f1f1f1] dark:bg-[#08070b]">
       <Header />
       <MovingCommand setmenu={setIsMenuOpen} isopen={isMenuOpen} />
-      <main className="flex-grow container mx-auto px-4 py-8 md:py-12">
+      <main className="flex-grow py-12 container mx-auto lg:px-24 h-full flex flex-col items-center">
         <div className=" mx-auto">
         <div className='flex flex-row gap-2 items-center mb-2'>
             <div className='flex flex-row items-center gap-2 group'>

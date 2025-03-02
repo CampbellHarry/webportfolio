@@ -33,7 +33,7 @@ export default function RichText({ content }: { content: any }) {
                 dangerouslySetInnerHTML={{ __html: contentsHtml }}
             />
             <div
-                className='custom-prose break-words text-sm font-medium break-all'
+                className='custom-prose break-words text-sm font-normal break-all'
                 dangerouslySetInnerHTML={{ __html: content }}
             />
         </div>
