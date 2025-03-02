@@ -26,15 +26,25 @@ export function CheckForHeadings(content: any) {
 export default function RichText({ content }: { content: any }) {
     const { contentsHtml } = useMemo(() => CheckForHeadings(content), [content]);
 
+
+    const contents = content
+        .replace(
+            /<h([1-6])>(.*?)<\/h\1>/gi,
+            '<h$1 class="custom-heading">$2</h$1>'
+        )
+        .replace(/&nbsp;/g, ' ')
+
     return (
         <div className='flex flex-col gap-1'>
             <div
-                className='custom-prose break-words text-sm font-medium break-all'
+                className='custom-prose text-sm font-medium'
                 dangerouslySetInnerHTML={{ __html: contentsHtml }}
+                style={{ wordBreak: 'keep-all' }}
             />
             <div
-                className='custom-prose break-words text-sm font-normal break-all'
-                dangerouslySetInnerHTML={{ __html: content }}
+                className='custom-prose w-full text-sm font-normal'
+                dangerouslySetInnerHTML={{ __html: contents }}
+                style={{ wordBreak: 'keep-all' }}
             />
         </div>
     );
