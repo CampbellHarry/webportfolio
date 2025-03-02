@@ -7,7 +7,7 @@ import NumberRater from "./number";
 import DateTime from "./dateTime";
 import React from "react";
 
-export default function Gatherer(blogs: any) {
+export default function Gatherer(blogs: any, setHeadings: void) {
     return (
         <div key={blogs?.blogs?.data?.merged?.id}>
             {blogs?.blogs?.data?.merged

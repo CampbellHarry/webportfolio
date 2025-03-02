@@ -18,16 +18,20 @@ body {
 }
 
 .custom-prose h2 {
-  font-size: 2rem;
+  font-size: 1.3rem;
   font-weight: semibold;
   margin-top: 0.1rem;
   margin-bottom: 1rem;
 }
 
 .custom-prose h1 {
-  font-size: 3rem;
+  font-size: 2rem;
+  width: 100%;
+  border-top: #ffffff1c 1px solid;
+  padding-top: 2rem;
   font-weight: bold;
-  color: blue;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 

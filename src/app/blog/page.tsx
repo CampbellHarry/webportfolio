@@ -80,7 +80,7 @@ export default function BlogPage() {
     <div className="w-full min-h-screen flex flex-col bg-[#f1f1f1] dark:bg-[#08070b]">
       <Header />
       <MovingCommand setmenu={setIsMenuOpen} isopen={isMenuOpen} />
-      <main className="flex-grow h-full py-12">
+      <main className="flex-grow py-12 md:-mt-24 container mx-auto lg:px-24 h-full flex flex-col  items-center justify-center">
         <div className="md:container mx-auto flex flex-col h-full px-4">
           <div className="flex flex-col gap-1 w-full">
             <h1 className="text-2xl md:text-5xl font-bold leading-snug md:w-7/12  text-start">

@@ -9,6 +9,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { AlertCircle, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 import { MovingCommand } from '@/app/page'
+import { CheckForHeadings } from '@/components/textuality/richtext'
 
 interface BlogProps {
   params: {
@@ -53,7 +54,6 @@ export default function Blog({ params }: Readonly<BlogProps>) {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#f1f1f1] dark:bg-[#08070b]">
-      
       <Header />
       <MovingCommand setmenu={setIsMenuOpen} isopen={isMenuOpen} />
       <main className="flex-grow container mx-auto px-4 py-8 md:py-12">
